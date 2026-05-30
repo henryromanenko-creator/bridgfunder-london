@@ -14,7 +14,7 @@
     <style>
         body { color: #E2E8F0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; position: relative; margin: 0; background-color: #0A192F; overflow-x: hidden; }
         .glass-panel { background: rgba(10, 25, 47, 0.65); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6); }
-        .result-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 1.25rem; text-align: center; }
+        .result-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 1rem; text-align: center; }
         .selection-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
         .selection-card:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 215, 0, 0.5); }
         .selection-card.selected { border-color: #FFD700; background: rgba(255, 215, 0, 0.1); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255, 215, 0, 0.15); }
@@ -55,14 +55,14 @@
         </div>
     </nav>
 
-    <div class="glass-panel rounded-2xl w-full max-w-2xl p-8 relative overflow-hidden mt-10 animate__animated animate__fadeInUp mx-4">
+    <div class="glass-panel rounded-2xl w-full max-w-2xl p-6 md:p-8 relative overflow-hidden mt-8 animate__animated animate__fadeInUp mx-4">
         
-        <div class="text-center mb-8" id="formHeader">
-            <h2 class="text-3xl font-bold text-white tracking-tight mb-3">Indicative Funding Calculator</h2>
-            <p class="text-sm text-gray-300 leading-relaxed max-w-lg mx-auto">Input your parameters to view real-time market averages and initial structuring estimates.</p>
+        <div class="text-center mb-6" id="formHeader">
+            <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight mb-2">Indicative Funding Calculator</h2>
+            <p class="text-xs md:text-sm text-gray-300 leading-relaxed max-w-lg mx-auto">Input your parameters to view real-time market averages and initial structuring estimates.</p>
         </div>
 
-        <div class="w-full bg-black/40 rounded-full h-2 mb-10 overflow-hidden shadow-inner" id="progressContainer">
+        <div class="w-full bg-black/40 rounded-full h-2 mb-8 overflow-hidden shadow-inner" id="progressContainer">
             <div id="progressBar" class="bg-gold h-2 rounded-full transition-all duration-500" style="width: 20%"></div>
         </div>
 
@@ -118,7 +118,7 @@
                     </div>
                     <div class="relative">
                         <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">£</span>
-                        <input type="text" id="loanAmount" placeholder="Loan Amount Required" class="cyber-input pl-8" onkeyup="formatCurrency(this)">
+                        <input type="text" id="loanAmount" placeholder="Gross Loan Amount Required" class="cyber-input pl-8" onkeyup="formatCurrency(this)">
                     </div>
                     <div class="relative">
                         <input type="text" id="currentLender" placeholder="Current Lender (Leave blank if N/A)" class="cyber-input" autocomplete="off">
@@ -127,8 +127,8 @@
                 </div>
                 <div class="mt-8 flex justify-between items-center">
                     <button type="button" onclick="goToStep(2)" class="text-gray-400 hover:text-white">Back</button>
-                    <button type="button" onclick="calculateIndicativeTerms()" class="cta-btn px-8 py-3.5 font-bold rounded-lg flex items-center gap-2">
-                        Calculate Indicative Terms <i data-lucide="calculator" class="w-4 h-4"></i>
+                    <button type="button" onclick="calculateIndicativeTerms()" class="cta-btn px-6 py-3 font-bold rounded-lg flex items-center gap-2">
+                        Calculate Structuring <i data-lucide="calculator" class="w-4 h-4"></i>
                     </button>
                 </div>
             </div>
@@ -136,40 +136,61 @@
             <div id="processingStep" class="step-content animate__animated text-center py-16 hidden">
                 <i data-lucide="loader-2" class="w-16 h-16 text-brand-cyan mx-auto mb-6 animate-spin"></i>
                 <h3 class="text-xl font-bold text-white mb-2">Analyzing Market Parameters</h3>
-                <p class="text-gray-400 text-sm">Cross-referencing FCA regulated specialist lending matrices...</p>
+                <p class="text-gray-400 text-sm">Computing estimated fees, interest, and Day-One advances...</p>
             </div>
 
             <div id="step4" class="step-content animate__animated">
                 <div class="text-center mb-6">
                     <h3 class="text-2xl font-bold text-gold mb-1">Indicative Structuring</h3>
-                    <p id="resProductType" class="text-brand-cyan font-semibold uppercase tracking-wider text-sm"></p>
+                    <p id="resProductType" class="text-brand-cyan font-semibold uppercase tracking-wider text-xs"></p>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="grid grid-cols-2 gap-3 mb-4">
                     <div class="result-card">
-                        <p class="text-xs text-gray-400 uppercase tracking-wider mb-1">Req. Leverage</p>
-                        <p id="resLTV" class="text-2xl font-bold text-white"></p>
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wider mb-1">Req. Leverage</p>
+                        <p id="resLTV" class="text-xl font-bold text-white"></p>
                     </div>
                     <div class="result-card">
-                        <p class="text-xs text-gray-400 uppercase tracking-wider mb-1">Standard Arr. Fee</p>
-                        <p id="resFee" class="text-xl font-bold text-white mt-1"></p>
-                    </div>
-                    <div class="result-card col-span-2">
-                        <p class="text-xs text-gray-400 uppercase tracking-wider mb-1">Current Indicative Market Rate</p>
-                        <p id="resRate" class="text-2xl font-bold text-white text-center"></p>
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wider mb-1">Est. Arrangement Fee</p>
+                        <p id="resFee" class="text-lg font-bold text-white mt-1"></p>
                     </div>
                 </div>
 
-                <div class="bg-red-500/10 border border-red-500/30 p-4 rounded-xl mb-8">
-                    <p class="text-[10px] md:text-xs text-gray-300 leading-relaxed text-justify font-medium">
-                        <strong class="text-white">REGULATORY NOTICE:</strong> The results generated by this calculator are for illustrative purposes only, are based on current market averages, and do not constitute a formal offer of credit or financial advice. As an independent credit broker and not a lender, we may receive a commission from the lender upon completion of a facility, which may be factored into the interest rate you pay. 
-                        <br><br><strong class="text-red-400 uppercase">Think carefully before securing debts against your property; your home or commercial asset may be repossessed if you do not keep up repayments on a mortgage or any other debt secured against it.</strong>
+                <div class="result-card w-full mb-4 bg-black/20 border-brand-cyan/30">
+                    <p class="text-[10px] text-gray-400 uppercase tracking-wider mb-1">Indicative Market Rate</p>
+                    <p id="resRate" class="text-xl font-bold text-brand-cyan"></p>
+                    <p id="resTermNote" class="text-xs text-gray-500 mt-1"></p>
+                </div>
+
+                <div class="bg-black/30 border border-white/10 rounded-xl p-4 mb-6">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3 border-b border-white/10 pb-2">Estimated Cash Breakdown</h4>
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm text-gray-400">Gross Loan Facility:</span>
+                        <span id="resGross" class="text-sm font-bold text-white"></span>
+                    </div>
+                    <div class="flex justify-between items-center mb-2">
+                        <span id="costLabel1" class="text-sm text-red-400/80"></span>
+                        <span id="costValue1" class="text-sm font-semibold text-red-400/80"></span>
+                    </div>
+                    <div class="flex justify-between items-center mb-3">
+                        <span id="costLabel2" class="text-sm text-red-400/80"></span>
+                        <span id="costValue2" class="text-sm font-semibold text-red-400/80"></span>
+                    </div>
+                    <div class="flex justify-between items-center pt-3 border-t border-white/10">
+                        <span id="netLabel" class="text-sm font-bold text-gold"></span>
+                        <span id="netValue" class="text-lg font-bold text-gold"></span>
+                    </div>
+                </div>
+
+                <div class="bg-red-500/10 border border-red-500/30 p-4 rounded-xl mb-6">
+                    <p class="text-[9px] md:text-[10px] text-gray-300 leading-relaxed text-justify font-medium">
+                        <strong class="text-white">REGULATORY NOTICE:</strong> The results generated are for illustrative purposes only, are based on current market averages, and do not constitute a formal offer of credit or financial advice. Figures exclude valuation and legal fees. As a broker, we may receive a commission. <br><strong class="text-red-400 uppercase">Think carefully before securing debts against your property; your home or commercial asset may be repossessed if you do not keep up repayments.</strong>
                     </p>
                 </div>
 
-                <div class="mt-4 flex justify-between items-center">
-                    <button type="button" onclick="goToStep(3)" class="text-gray-400 hover:text-white">Edit Values</button>
-                    <button type="button" onclick="goToStep(5)" class="cta-btn px-8 py-3.5 font-bold rounded-lg flex items-center gap-2 shadow-lg hover:scale-105 transition-transform">
+                <div class="mt-4 flex flex-col sm:flex-row gap-4 justify-between items-center">
+                    <button type="button" onclick="goToStep(3)" class="text-sm text-gray-400 hover:text-white order-2 sm:order-1">Edit Values</button>
+                    <button type="button" onclick="goToStep(5)" class="cta-btn w-full sm:w-auto px-8 py-3.5 font-bold rounded-lg flex items-center justify-center gap-2 shadow-lg hover:scale-105 transition-transform order-1 sm:order-2">
                         Unlock Formal Terms <i data-lucide="unlock" class="w-4 h-4"></i>
                     </button>
                 </div>
@@ -189,8 +210,8 @@
                     </div>
                 </div>
                 <div class="mt-8 flex justify-between items-center">
-                    <button type="button" onclick="goToStep(4)" class="text-gray-400 hover:text-white">Back to Results</button>
-                    <button type="button" onclick="submitEnquiry()" id="finalSubmitBtn" class="cta-btn px-8 py-3.5 font-bold rounded-lg flex items-center gap-2 shadow-[0_0_15px_rgba(255,215,0,0.4)]">
+                    <button type="button" onclick="goToStep(4)" class="text-gray-400 hover:text-white text-sm">Back to Results</button>
+                    <button type="button" onclick="submitEnquiry()" id="finalSubmitBtn" class="cta-btn px-6 md:px-8 py-3 font-bold rounded-lg flex items-center gap-2 shadow-[0_0_15px_rgba(255,215,0,0.4)]">
                         Submit Enquiry <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </button>
                 </div>
@@ -205,8 +226,8 @@
         </form>
     </div>
 
-    <div class="w-full max-w-2xl mt-8 text-center px-4 relative z-10" id="footerLegal">
-        <p class="text-[10px] text-gray-400 font-mono leading-relaxed uppercase tracking-widest drop-shadow-md">
+    <div class="w-full max-w-2xl mt-6 text-center px-4 relative z-10" id="footerLegal">
+        <p class="text-[9px] md:text-[10px] text-gray-400 font-mono leading-relaxed uppercase tracking-widest drop-shadow-md">
             BridgFunder London is an Appointed Representative of White Rose Finance Group Ltd, which is authorised and regulated by the Financial Conduct Authority (FRN: 630772).
         </p>
     </div>
@@ -229,7 +250,6 @@
         lucide.createIcons();
         
         let formData = { category: '', goal: '', propertyValue: '', loanAmount: '', currentLender: '', fullName: '', email: '', phone: '', additionalInfo: '', privacyAccepted: false };
-        
         const GOOGLE_API_URL = "https://script.google.com/macros/s/AKfycbwvP4m1Fxt2IuRXXWA0UBSh6NlUAtGv5xTSY09mVHRWQHfGE_JuiGkC3k4axOiYpFMDzg/exec";
 
         function navTo(page) {
@@ -237,241 +257,187 @@
             window.location.href = target;
         }
 
-        // Formatting currency with commas
+        const formatMoney = (num) => '£' + num.toLocaleString('en-GB', {maximumFractionDigits: 0});
+        
         function formatCurrency(input) {
             let val = input.value.replace(/,/g, '').replace(/\D/g, '');
             if(val) input.value = Number(val).toLocaleString('en-GB');
         }
-        function getRawNumber(str) {
-            return Number(str.replace(/,/g, '').replace(/\D/g, ''));
-        }
+        function getRawNumber(str) { return Number(str.replace(/,/g, '').replace(/\D/g, '')); }
 
-        // Modal Logic
         function showValidationModal(message) {
             const modal = document.getElementById('validationModal');
             const content = document.getElementById('validationModalContent');
             document.getElementById('validationModalMessage').innerText = message;
-            modal.classList.remove('hidden');
-            void modal.offsetWidth; 
-            modal.classList.remove('opacity-0');
-            content.classList.remove('scale-95');
-            content.classList.add('scale-100');
+            modal.classList.remove('hidden'); void modal.offsetWidth; 
+            modal.classList.remove('opacity-0'); content.classList.remove('scale-95'); content.classList.add('scale-100');
         }
-
         function closeValidationModal() {
             const modal = document.getElementById('validationModal');
             const content = document.getElementById('validationModalContent');
-            modal.classList.add('opacity-0');
-            content.classList.remove('scale-100');
-            content.classList.add('scale-95');
+            modal.classList.add('opacity-0'); content.classList.remove('scale-100'); content.classList.add('scale-95');
             setTimeout(() => modal.classList.add('hidden'), 300);
         }
-
-        // Navigation
         function goToStep(step) {
             document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active', 'animate__fadeIn'));
             document.getElementById(`step${step}`).classList.add('active', 'animate__fadeIn');
             document.getElementById('progressBar').style.width = (step * 20) + '%';
         }
-
-        function selectClientType(type, element) {
-            formData.category = type;
-            document.querySelectorAll('#step1 .selection-card').forEach(c => c.classList.remove('selected'));
-            element.classList.add('selected');
-            setTimeout(() => goToStep(2), 300);
+        function selectClientType(type, el) {
+            formData.category = type; document.querySelectorAll('#step1 .selection-card').forEach(c => c.classList.remove('selected'));
+            el.classList.add('selected'); setTimeout(() => goToStep(2), 300);
         }
-
-        function selectRequirement(req, element) {
-            formData.goal = req;
-            document.querySelectorAll('#step2 .selection-card').forEach(c => c.classList.remove('selected'));
-            element.classList.add('selected');
-            setTimeout(() => goToStep(3), 300);
+        function selectRequirement(req, el) {
+            formData.goal = req; document.querySelectorAll('#step2 .selection-card').forEach(c => c.classList.remove('selected'));
+            el.classList.add('selected'); setTimeout(() => goToStep(3), 300);
         }
 
         // --- ALGORITHMIC CALCULATOR LOGIC ---
         function calculateIndicativeTerms() {
             const valStr = document.getElementById('assetValue').value;
             const loanStr = document.getElementById('loanAmount').value;
+            if(!valStr || !loanStr) { showValidationModal("Please provide both Values to generate a quote."); return; }
             
-            if(!valStr || !loanStr) { 
-                showValidationModal("Please provide both the Estimated Value and the Loan Amount Required to generate an indicative quote."); 
-                return; 
-            }
+            const val = getRawNumber(valStr); const loan = getRawNumber(loanStr);
+            if (loan > val) { showValidationModal("Requested loan amount cannot exceed the asset value."); return; }
 
-            const val = getRawNumber(valStr);
-            const loan = getRawNumber(loanStr);
-            
-            if (loan > val) {
-                showValidationModal("Requested loan amount cannot exceed the asset value.");
-                return;
-            }
+            formData.propertyValue = valStr; formData.loanAmount = loanStr; formData.currentLender = document.getElementById('currentLender').value;
 
-            formData.propertyValue = valStr;
-            formData.loanAmount = loanStr;
-            formData.currentLender = document.getElementById('currentLender').value;
-
-            // Trigger Processing State
             document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
-            document.getElementById('processingStep').classList.remove('hidden');
-            document.getElementById('processingStep').classList.add('active');
+            document.getElementById('processingStep').classList.remove('hidden'); document.getElementById('processingStep').classList.add('active');
 
             setTimeout(() => {
                 generateMarketMatrix(val, loan);
-                document.getElementById('processingStep').classList.remove('active');
-                document.getElementById('processingStep').classList.add('hidden');
+                document.getElementById('processingStep').classList.remove('active'); document.getElementById('processingStep').classList.add('hidden');
                 goToStep(4);
-            }, 1800); // 1.8 seconds of "analysis"
+            }, 1800);
         }
 
         function generateMarketMatrix(value, loan) {
             let ltv = (loan / value) * 100;
-            let product = "";
-            let rate = "";
-            let fee = "";
-            let maxLtvLimit = 75;
+            
+            let product = ""; let rateStr = ""; let feeStr = ""; let maxLtvLimit = 75;
+            let isRetained = false; let termAssumed = 12; 
+            let numericRate = 0; let numericFee = 0.02;
 
-            // Determine Product based on Inputs
             if(formData.goal.includes('Development')) {
-                product = "Development / Heavy Refurbishment";
-                rate = "8.50% - 10.50% p.a.";
-                fee = "1.50% - 2.00%";
-                maxLtvLimit = 70; // LTGDV
+                product = "Development / Heavy Refurbishment"; maxLtvLimit = 70; isRetained = true; termAssumed = 18;
+                rateStr = "9.50% p.a."; numericRate = 0.095; // annual
+                numericFee = 0.02; feeStr = "2.00%";
             } else if (formData.goal.includes('Asset finance')) {
-                product = "Asset Finance / Cashflow";
-                rate = "8.00% - 12.00% APR";
-                fee = "£250 - £500 Doc Fee";
-                maxLtvLimit = 100; 
+                product = "Asset Finance / Cashflow"; maxLtvLimit = 100; isRetained = false;
+                rateStr = "9.50% APR"; numericRate = 0.095;
+                numericFee = 0; feeStr = "£350 Doc Fee";
+            } else if(formData.category === 'Property Developer' && formData.goal.includes('Exit bridge')) {
+                product = "Unregulated Bridging Finance"; maxLtvLimit = 75; isRetained = true; termAssumed = 12;
+                rateStr = "0.95% p.m."; numericRate = 0.0095; // monthly
+                numericFee = 0.02; feeStr = "2.00%";
+            } else if (formData.category === 'Professional Landlord') {
+                product = "Buy-to-Let / Portfolio Mortgage"; maxLtvLimit = 75; isRetained = false;
+                rateStr = "5.50% p.a. (Fixed)"; numericRate = 0.055;
+                numericFee = 0.03; feeStr = "3.00%";
             } else {
-                if(formData.category === 'Property Developer' && formData.goal.includes('Exit bridge')) {
-                    product = "Unregulated Bridging Finance";
-                    rate = "0.85% - 1.05% p.m.";
-                    fee = "2.00%";
-                    maxLtvLimit = 75;
-                } else if (formData.category === 'Professional Landlord') {
-                    product = "Buy-to-Let / Portfolio Mortgage";
-                    rate = "5.25% - 6.10% p.a. (Fixed)";
-                    fee = "2.50% - 5.00%";
-                    maxLtvLimit = 75;
-                } else {
-                    product = "Commercial Trading Mortgage";
-                    rate = "6.25% - 8.25% p.a. (Var)";
-                    fee = "2.00% - 2.50%";
-                    maxLtvLimit = 75;
-                }
+                product = "Commercial Trading Mortgage"; maxLtvLimit = 75; isRetained = false;
+                rateStr = "7.25% p.a. (Var)"; numericRate = 0.0725;
+                numericFee = 0.025; feeStr = "2.50%";
             }
 
             // Flag LTV limits
             let ltvDisplay = ltv.toFixed(1) + "%";
-            if(ltv > maxLtvLimit) {
-                ltvDisplay += " <span class='block text-[10px] text-red-400 mt-1'>(Exceeds Standard Limits - Mezzanine/Specialist Structuring Required)</span>";
-            }
+            if(ltv > maxLtvLimit) { ltvDisplay += " <span class='block text-[10px] text-red-400 mt-1'>(Exceeds Standard Limits)</span>"; }
 
             document.getElementById('resProductType').innerText = product;
             document.getElementById('resLTV').innerHTML = ltvDisplay;
-            document.getElementById('resRate').innerText = rate;
-            document.getElementById('resFee').innerText = fee;
+            document.getElementById('resRate').innerText = rateStr;
+            document.getElementById('resFee').innerText = feeStr;
+            
+            // Do the Math
+            document.getElementById('resGross').innerText = formatMoney(loan);
+            
+            let calcFee = (numericFee === 0) ? 350 : (loan * numericFee);
+            
+            if (isRetained) {
+                // For Bridging/Dev: Retained Interest & Net Advance
+                document.getElementById('resTermNote').innerText = `*Assuming a ${termAssumed}-month term`;
+                let calcInterest = 0;
+                if (product.includes("Development")) {
+                    calcInterest = loan * numericRate * (termAssumed/12); // Annual rate logic
+                } else {
+                    calcInterest = loan * numericRate * termAssumed; // Monthly rate logic
+                }
+                let netAdvance = loan - calcFee - calcInterest;
+                
+                document.getElementById('costLabel1').innerText = `- Arr. Fee Deducted (${feeStr}):`;
+                document.getElementById('costValue1').innerText = "-" + formatMoney(calcFee);
+                
+                document.getElementById('costLabel2').innerText = `- Est. Retained Interest (${termAssumed}m):`;
+                document.getElementById('costValue2').innerText = "-" + formatMoney(calcInterest);
+                
+                document.getElementById('netLabel').innerText = "Estimated Day-One Net Advance:";
+                document.getElementById('netValue').innerText = formatMoney(netAdvance);
+                
+            } else {
+                // For BTL/Commercial: Monthly Payment (Interest Only assumption)
+                document.getElementById('resTermNote').innerText = `*Assuming Interest-Only structure`;
+                document.getElementById('costLabel1').innerText = `Est. Arrangement Fee:`;
+                document.getElementById('costValue1').innerText = formatMoney(calcFee);
+                
+                document.getElementById('costLabel2').innerText = ``;
+                document.getElementById('costValue2').innerText = ``;
+                
+                let monthlyInt = (loan * numericRate) / 12;
+                document.getElementById('netLabel').innerText = "Estimated Monthly Interest:";
+                document.getElementById('netValue').innerText = formatMoney(monthlyInt);
+            }
         }
 
-        // Submit Logic
         async function submitEnquiry() {
             const name = document.getElementById('fullName').value.trim();
             const email = document.getElementById('emailAdd').value.trim();
             const phone = document.getElementById('phoneNum').value.trim();
             const consent = document.getElementById('privacyConsent').checked;
-
-            if(!name || !email || !phone || !consent) { 
-                showValidationModal("Please ensure you have provided your Full Name, Email, Phone, and accepted the Privacy Notice."); 
-                return; 
-            }
+            if(!name || !email || !phone || !consent) { showValidationModal("Please ensure you have provided your details and accepted the Privacy Notice."); return; }
             
             const btn = document.getElementById('finalSubmitBtn');
-            btn.innerHTML = 'Processing... <i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i>';
-            btn.disabled = true;
-            lucide.createIcons();
+            btn.innerHTML = 'Processing... <i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i>'; btn.disabled = true; lucide.createIcons();
 
-            formData.fullName = name;
-            formData.email = email;
-            formData.phone = phone;
-            formData.additionalInfo = document.getElementById('additionalInfo').value.trim();
-            formData.privacyAccepted = true;
+            formData.fullName = name; formData.email = email; formData.phone = phone; 
+            formData.additionalInfo = document.getElementById('additionalInfo').value.trim(); formData.privacyAccepted = true;
 
             try {
-                await fetch(GOOGLE_API_URL + "?action=enquiry", {
-                    method: "POST",
-                    body: JSON.stringify(formData),
-                    headers: { "Content-Type": "text/plain;charset=utf-8" }
-                });
-                
-                document.getElementById('step5').classList.remove('active');
-                document.getElementById('successStep').classList.remove('hidden');
+                await fetch(GOOGLE_API_URL + "?action=enquiry", { method: "POST", body: JSON.stringify(formData), headers: { "Content-Type": "text/plain;charset=utf-8" } });
+                document.getElementById('step5').classList.remove('active'); document.getElementById('successStep').classList.remove('hidden');
                 document.getElementById('successStep').classList.add('active', 'animate__fadeIn');
-                document.getElementById('progressBar').style.width = '100%';
-                document.getElementById('progressBar').style.backgroundColor = '#4ade80';
-                
-                // Hide header and footer legal on success screen for cleaner UI
-                document.getElementById('formHeader').style.display = 'none';
-                document.getElementById('footerLegal').style.display = 'none';
-                
+                document.getElementById('progressBar').style.width = '100%'; document.getElementById('progressBar').style.backgroundColor = '#4ade80';
+                document.getElementById('formHeader').style.display = 'none'; document.getElementById('footerLegal').style.display = 'none';
             } catch (e) {
                 showValidationModal("There was an issue submitting your enquiry. Please check your connection and try again.");
-                btn.innerHTML = 'Submit Enquiry <i data-lucide="arrow-right" class="w-4 h-4"></i>';
-                btn.disabled = false;
-                lucide.createIcons();
+                btn.innerHTML = 'Submit Enquiry <i data-lucide="arrow-right" class="w-4 h-4"></i>'; btn.disabled = false; lucide.createIcons();
             }
         }
 
-        // Background Carousel
         const images = ['https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Index_Carousel_3.png','https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Index_Carousel_2.png','https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Index_Carousel_1.png'];
         let cur = 1;
-        images.forEach((url, i) => {
-            const slide = document.getElementById('form-carousel-' + (i + 1));
-            if(slide) slide.style.backgroundImage = `url('${url}')`;
-        });
+        images.forEach((url, i) => { const slide = document.getElementById('form-carousel-' + (i + 1)); if(slide) slide.style.backgroundImage = `url('${url}')`; });
         document.getElementById('form-carousel-1').classList.add('active');
-        setInterval(() => {
-            document.getElementById('form-carousel-' + cur).classList.remove('active');
-            cur = cur >= 3 ? 1 : cur + 1;
-            document.getElementById('form-carousel-' + cur).classList.add('active');
-        }, 5500);
+        setInterval(() => { document.getElementById('form-carousel-' + cur).classList.remove('active'); cur = cur >= 3 ? 1 : cur + 1; document.getElementById('form-carousel-' + cur).classList.add('active'); }, 5500);
 
-        // Lender Autocomplete Logic
-        const lenders = [
-            "Barclays Bank Plc", "Lloyds Bank Plc", "Santander UK Plc", "Aldermore Bank Plc", "Shawbrook Bank Limited", 
-            "Together Money", "Precise Mortgages Limited", "United Trust Bank Limited", "Close Brothers Limited", 
-            "Octane Capital Limited", "MT Finance Group Limited", "Masthaven Finance Limited", "Roma Finance Limited",
-            "Hope Property Finance Ltd", "Atelier Capital Partners Limited", "Avamore Capital Limited", "Blend",
-            "Capitalrise Estates Limited", "Fiduciam Ltd", "Lendinvest Plc", "Oaknorth Bank Plc", "Paragon Bank Plc",
-            "Allica Bank Limited", "Hampshire Trust Bank Plc", "West One Secured Loans Limited", "Other / Not Listed"
-        ].sort();
-
-        const input = document.getElementById('currentLender');
-        const list = document.getElementById('lenderList');
+        const lenders = ["Barclays Bank Plc", "Lloyds Bank Plc", "Santander UK Plc", "Aldermore Bank Plc", "Shawbrook Bank Limited", "Together Money", "Precise Mortgages Limited", "United Trust Bank Limited", "Close Brothers Limited", "Octane Capital Limited", "MT Finance Group Limited", "Masthaven Finance Limited", "Roma Finance Limited", "Hope Property Finance Ltd", "Atelier Capital Partners Limited", "Avamore Capital Limited", "Blend", "Capitalrise Estates Limited", "Fiduciam Ltd", "Lendinvest Plc", "Oaknorth Bank Plc", "Paragon Bank Plc", "Allica Bank Limited", "Hampshire Trust Bank Plc", "West One Secured Loans Limited", "Other / Not Listed"].sort();
+        const input = document.getElementById('currentLender'); const list = document.getElementById('lenderList');
         
         input.addEventListener('input', (e) => {
-            const val = e.target.value.toLowerCase();
-            list.innerHTML = '';
+            const val = e.target.value.toLowerCase(); list.innerHTML = '';
             if(!val) { list.style.display = 'none'; return; }
-            
             const filtered = lenders.filter(l => l.toLowerCase().includes(val));
             if(filtered.length > 0) {
                 list.style.display = 'block';
                 filtered.forEach(l => {
-                    const d = document.createElement('div');
-                    d.className = 'autocomplete-item';
-                    d.innerText = l;
-                    d.onclick = () => { input.value = l; list.style.display = 'none'; };
-                    list.appendChild(d);
+                    const d = document.createElement('div'); d.className = 'autocomplete-item'; d.innerText = l;
+                    d.onclick = () => { input.value = l; list.style.display = 'none'; }; list.appendChild(d);
                 });
-            } else { 
-                list.style.display = 'none'; 
-            }
+            } else { list.style.display = 'none'; }
         });
-
-        document.addEventListener('click', (e) => {
-            if (!input.contains(e.target) && !list.contains(e.target)) {
-                list.style.display = 'none';
-            }
-        });
+        document.addEventListener('click', (e) => { if (!input.contains(e.target) && !list.contains(e.target)) { list.style.display = 'none'; } });
     </script>
 </body>
 </html>

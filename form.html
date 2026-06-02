@@ -71,7 +71,7 @@
         </div>
 
         <div class="w-full bg-black/40 rounded-full h-2 mb-8 overflow-hidden shadow-inner" id="progressContainer">
-            <div id="progressBar" class="bg-gold h-2 rounded-full transition-all duration-500" style="width: 20%"></div>
+            <div id="progressBar" class="bg-gold h-2 rounded-full transition-all duration-500" style="width: 25%"></div>
         </div>
 
         <form id="appraisalForm" onsubmit="return false;">
@@ -135,7 +135,28 @@
                 </div>
                 <div class="mt-8 flex justify-between items-center">
                     <button type="button" onclick="goToStep(2)" class="text-gray-400 hover:text-white">Back</button>
-                    <button type="button" onclick="calculateIndicativeTerms()" class="cta-btn px-6 py-3 font-bold rounded-lg flex items-center gap-2">
+                    <button type="button" onclick="validateValuesAndProceed()" class="cta-btn px-6 py-3 font-bold rounded-lg flex items-center gap-2">
+                        Unlock Indicative Terms <i data-lucide="unlock" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="step4" class="step-content animate__animated">
+                <h3 class="text-lg font-semibold text-white mb-2">Where should we send your structuring?</h3>
+                <p class="text-sm text-gray-400 mb-6">Provide your details to unlock your market estimates and have a senior underwriter review your scenario.</p>
+                <div class="space-y-5">
+                    <input type="text" id="fullName" placeholder="Full Name" class="cyber-input">
+                    <input type="email" id="emailAdd" placeholder="Email Address" class="cyber-input">
+                    <input type="tel" id="phoneNum" placeholder="Phone Number" class="cyber-input">
+                    <textarea id="additionalInfo" rows="2" placeholder="Additional Details (Optional)" class="cyber-input resize-none"></textarea>
+                    <div class="flex items-start gap-3 p-4 bg-black/20 rounded-lg border border-white/5">
+                        <input type="checkbox" id="privacyConsent" class="mt-1 accent-gold w-5 h-5 cursor-pointer">
+                        <label for="privacyConsent" class="text-xs text-gray-300 cursor-pointer">I agree to the Privacy Policy. I understand my data will be used securely to process this commercial finance enquiry.</label>
+                    </div>
+                </div>
+                <div class="mt-8 flex justify-between items-center">
+                    <button type="button" onclick="goToStep(3)" class="text-gray-400 hover:text-white text-sm">Back to Values</button>
+                    <button type="button" onclick="submitEnquiryAndCalculate()" id="finalSubmitBtn" class="cta-btn px-6 md:px-8 py-3 font-bold rounded-lg flex items-center gap-2 shadow-[0_0_15px_rgba(255,215,0,0.4)]">
                         Calculate Structuring <i data-lucide="calculator" class="w-4 h-4"></i>
                     </button>
                 </div>
@@ -144,10 +165,10 @@
             <div id="processingStep" class="step-content animate__animated text-center py-16 hidden">
                 <i data-lucide="loader-2" class="w-16 h-16 text-brand-cyan mx-auto mb-6 animate-spin"></i>
                 <h3 class="text-xl font-bold text-white mb-2">Analyzing Market Parameters</h3>
-                <p class="text-gray-400 text-sm">Computing estimated fees, interest, and Day-One advances...</p>
+                <p class="text-gray-400 text-sm">Securing details and computing estimated fees...</p>
             </div>
 
-            <div id="step4" class="step-content animate__animated">
+            <div id="step5" class="step-content animate__animated">
                 <div class="text-center mb-6">
                     <h3 class="text-2xl font-bold text-gold mb-1">Indicative Structuring</h3>
                     <p id="resProductType" class="text-brand-cyan font-semibold uppercase tracking-wider text-xs"></p>
@@ -192,44 +213,15 @@
 
                 <div class="bg-red-500/10 border border-red-500/30 p-4 rounded-xl mb-6">
                     <p class="text-[9px] md:text-[10px] text-gray-300 leading-relaxed text-justify font-medium">
-                        <strong class="text-white">REGULATORY NOTICE:</strong> The results generated are for illustrative purposes only, are based on current market averages, and do not constitute a formal offer of credit or financial advice. Figures exclude valuation and legal fees. As a broker, we may receive a commission. <br><strong class="text-red-400 uppercase">Think carefully before securing debts against your property; your home or commercial asset may be repossessed if you do not keep up repayments.</strong>
+                        <strong class="text-white">ENQUIRY RECEIVED:</strong> Your details have been securely logged and a senior underwriter will contact you shortly. The results generated above are for illustrative purposes only, are based on current market averages, and do not constitute a formal offer of credit or financial advice. Figures exclude valuation and legal fees.
                     </p>
                 </div>
 
-                <div class="mt-4 flex flex-col sm:flex-row gap-4 justify-between items-center">
-                    <button type="button" onclick="goToStep(3)" class="text-sm text-gray-400 hover:text-white order-2 sm:order-1">Edit Values</button>
-                    <button type="button" onclick="goToStep(5)" class="cta-btn w-full sm:w-auto px-8 py-3.5 font-bold rounded-lg flex items-center justify-center gap-2 shadow-lg hover:scale-105 transition-transform order-1 sm:order-2">
-                        Unlock Formal Terms <i data-lucide="unlock" class="w-4 h-4"></i>
+                <div class="mt-4 flex justify-center items-center">
+                    <button type="button" onclick="navTo('Index')" class="px-8 py-3.5 bg-white/10 text-white font-bold rounded-lg border border-white/20 hover:bg-white/20 transition-colors">
+                        Return Home
                     </button>
                 </div>
-            </div>
-
-            <div id="step5" class="step-content animate__animated">
-                <h3 class="text-lg font-semibold text-white mb-2">Secure Your Consultation</h3>
-                <p class="text-sm text-gray-400 mb-6">Provide your details to have a senior underwriter review this exact scenario.</p>
-                <div class="space-y-5">
-                    <input type="text" id="fullName" placeholder="Full Name" class="cyber-input">
-                    <input type="email" id="emailAdd" placeholder="Email Address" class="cyber-input">
-                    <input type="tel" id="phoneNum" placeholder="Phone Number" class="cyber-input">
-                    <textarea id="additionalInfo" rows="2" placeholder="Additional Details (Optional)" class="cyber-input resize-none"></textarea>
-                    <div class="flex items-start gap-3 p-4 bg-black/20 rounded-lg border border-white/5">
-                        <input type="checkbox" id="privacyConsent" class="mt-1 accent-gold w-5 h-5 cursor-pointer">
-                        <label for="privacyConsent" class="text-xs text-gray-300 cursor-pointer">I agree to the Privacy Policy. I understand my data will be used securely to process this commercial finance enquiry.</label>
-                    </div>
-                </div>
-                <div class="mt-8 flex justify-between items-center">
-                    <button type="button" onclick="goToStep(4)" class="text-gray-400 hover:text-white text-sm">Back to Results</button>
-                    <button type="button" onclick="submitEnquiry()" id="finalSubmitBtn" class="cta-btn px-6 md:px-8 py-3 font-bold rounded-lg flex items-center gap-2 shadow-[0_0_15px_rgba(255,215,0,0.4)]">
-                        Submit Enquiry <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div id="successStep" class="step-content animate__animated text-center py-10 hidden">
-                <i data-lucide="check-circle" class="w-16 h-16 text-brand-cyan mx-auto mb-6"></i>
-                <h3 class="text-2xl font-bold text-white mb-4">Enquiry Received</h3>
-                <p class="text-gray-300 mb-8">Your indicative scenario has been securely logged. A senior partner will contact you shortly.</p>
-                <button onclick="navTo('Index')" class="px-8 py-3 bg-white/10 text-white rounded-lg border border-white/20 hover:bg-white/20 transition-colors">Return Home</button>
             </div>
         </form>
     </div>
@@ -289,7 +281,7 @@
         function goToStep(step) {
             document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active', 'animate__fadeIn'));
             document.getElementById(`step${step}`).classList.add('active', 'animate__fadeIn');
-            document.getElementById('progressBar').style.width = (step * 20) + '%';
+            document.getElementById('progressBar').style.width = (step * 25) + '%';
         }
         function selectClientType(type, el) {
             formData.category = type; document.querySelectorAll('#step1 .selection-card').forEach(c => c.classList.remove('selected'));
@@ -300,25 +292,16 @@
             el.classList.add('selected'); setTimeout(() => goToStep(3), 300);
         }
 
-        // --- ALGORITHMIC CALCULATOR LOGIC ---
-        function calculateIndicativeTerms() {
+        function validateValuesAndProceed() {
             const valStr = document.getElementById('assetValue').value;
             const loanStr = document.getElementById('loanAmount').value;
-            if(!valStr || !loanStr) { showValidationModal("Please provide both Values to generate a quote."); return; }
+            if(!valStr || !loanStr) { showValidationModal("Please provide both Values to continue."); return; }
             
             const val = getRawNumber(valStr); const loan = getRawNumber(loanStr);
             if (loan > val) { showValidationModal("Requested loan amount cannot exceed the asset value."); return; }
 
             formData.propertyValue = valStr; formData.loanAmount = loanStr; formData.currentLender = document.getElementById('currentLender').value;
-
-            document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
-            document.getElementById('processingStep').classList.remove('hidden'); document.getElementById('processingStep').classList.add('active');
-
-            setTimeout(() => {
-                generateMarketMatrix(val, loan);
-                document.getElementById('processingStep').classList.remove('active'); document.getElementById('processingStep').classList.add('hidden');
-                goToStep(4);
-            }, 1800);
+            goToStep(4);
         }
 
         function generateMarketMatrix(value, loan) {
@@ -369,9 +352,9 @@
                 document.getElementById('resTermNote').innerText = `*Assuming a ${termAssumed}-month term`;
                 let calcInterest = 0;
                 if (product.includes("Development")) {
-                    calcInterest = loan * numericRate * (termAssumed/12); // Annual rate logic
+                    calcInterest = loan * numericRate * (termAssumed/12); 
                 } else {
-                    calcInterest = loan * numericRate * termAssumed; // Monthly rate logic
+                    calcInterest = loan * numericRate * termAssumed; 
                 }
                 let netAdvance = loan - calcFee - calcInterest;
                 
@@ -399,28 +382,43 @@
             }
         }
 
-        async function submitEnquiry() {
+        async function submitEnquiryAndCalculate() {
             const name = document.getElementById('fullName').value.trim();
             const email = document.getElementById('emailAdd').value.trim();
             const phone = document.getElementById('phoneNum').value.trim();
             const consent = document.getElementById('privacyConsent').checked;
+            
             if(!name || !email || !phone || !consent) { showValidationModal("Please ensure you have provided your details and accepted the Privacy Notice."); return; }
             
             const btn = document.getElementById('finalSubmitBtn');
-            btn.innerHTML = 'Processing... <i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i>'; btn.disabled = true; lucide.createIcons();
+            btn.innerHTML = 'Calculating... <i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i>'; btn.disabled = true; lucide.createIcons();
 
             formData.fullName = name; formData.email = email; formData.phone = phone; 
             formData.additionalInfo = document.getElementById('additionalInfo').value.trim(); formData.privacyAccepted = true;
 
+            document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
+            document.getElementById('processingStep').classList.remove('hidden'); document.getElementById('processingStep').classList.add('active');
+
             try {
+                // Send to Google Sheets CRM first
                 await fetch(GOOGLE_API_URL + "?action=enquiry", { method: "POST", body: JSON.stringify(formData), headers: { "Content-Type": "text/plain;charset=utf-8" } });
-                document.getElementById('step5').classList.remove('active'); document.getElementById('successStep').classList.remove('hidden');
-                document.getElementById('successStep').classList.add('active', 'animate__fadeIn');
+                
+                // Do the math
+                generateMarketMatrix(getRawNumber(formData.propertyValue), getRawNumber(formData.loanAmount));
+                
+                // Hide Processing, Show Results
+                document.getElementById('processingStep').classList.remove('active'); document.getElementById('processingStep').classList.add('hidden');
+                document.getElementById('step5').classList.add('active', 'animate__fadeIn');
+                
+                // Visual cleanup
                 document.getElementById('progressBar').style.width = '100%'; document.getElementById('progressBar').style.backgroundColor = '#4ade80';
                 document.getElementById('formHeader').style.display = 'none'; document.getElementById('footerLegal').style.display = 'none';
+                
             } catch (e) {
-                showValidationModal("There was an issue submitting your enquiry. Please check your connection and try again.");
-                btn.innerHTML = 'Submit Enquiry <i data-lucide="arrow-right" class="w-4 h-4"></i>'; btn.disabled = false; lucide.createIcons();
+                document.getElementById('processingStep').classList.remove('active'); document.getElementById('processingStep').classList.add('hidden');
+                document.getElementById('step4').classList.add('active');
+                showValidationModal("There was an issue processing your request. Please check your connection and try again.");
+                btn.innerHTML = 'Calculate Structuring <i data-lucide="calculator" class="w-4 h-4"></i>'; btn.disabled = false; lucide.createIcons();
             }
         }
 
@@ -446,78 +444,6 @@
             } else { list.style.display = 'none'; }
         });
         document.addEventListener('click', (e) => { if (!input.contains(e.target) && !list.contains(e.target)) { list.style.display = 'none'; } });
-    </script>
-
-    <style>
-        @keyframes pulse-whatsapp {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-        .whatsapp-float {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 9999;
-            background-color: #25D366;
-            color: white;
-            border-radius: 50%;
-            padding: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease;
-            animation: pulse-whatsapp 2s infinite;
-        }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            animation: none;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
-        }
-    </style>
-    <a href="https://wa.me/447448880857" target="_blank" aria-label="Chat on WhatsApp" class="whatsapp-float">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.012c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
-        </svg>
-    </a>
-
-    <div id="cookie-consent-banner" class="fixed bottom-0 left-0 right-0 z-[10000] p-4 md:p-6 translate-y-full transition-transform duration-500 ease-in-out">
-        <div class="max-w-4xl mx-auto bg-navy/95 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl flex flex-col md:flex-row items-center gap-6">
-            <div class="flex-1">
-                <h4 class="text-white font-bold mb-1 flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path><path d="M8.5 8.5v.01"></path><path d="M16 15.5v.01"></path><path d="M12 12v.01"></path><path d="M11 17v.01"></path><path d="M7 14v.01"></path></svg>
-                    Data & Privacy Consent
-                </h4>
-                <p class="text-gray-300 text-xs md:text-sm leading-relaxed">
-                    We use cookies to analyze site traffic and optimize your experience. By clicking "Accept All", you agree to our use of cookies as described in our 
-                    <a href="legal.html" class="text-gold hover:underline font-medium">Privacy Policy</a>.
-                </p>
-            </div>
-            <div class="flex gap-3 w-full md:w-auto">
-                <button onclick="acceptCookies()" class="flex-1 md:flex-none bg-gold hover:bg-yellow-500 text-navy font-bold py-3 px-8 rounded-lg transition-all shadow-lg active:scale-95 text-sm">
-                    Accept All
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function showBanner() {
-            const banner = document.getElementById('cookie-consent-banner');
-            if (!localStorage.getItem('bridgfunder_consent')) {
-                setTimeout(() => {
-                    banner.classList.remove('translate-y-full');
-                }, 1500);
-            }
-        }
-
-        function acceptCookies() {
-            const banner = document.getElementById('cookie-consent-banner');
-            localStorage.setItem('bridgfunder_consent', 'true');
-            banner.classList.add('translate-y-full');
-        }
-
-        document.addEventListener('DOMContentLoaded', showBanner);
     </script>
 </body>
 </html>

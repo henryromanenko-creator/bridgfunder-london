@@ -37,15 +37,6 @@
 </head>
 <body class="antialiased min-h-screen flex flex-col">
 
-    <div class="bg-gray-50 border-b border-gray-200 text-right px-4 lg:px-10 py-1.5 hidden md:block w-full">
-        <span class="font-sans text-xs text-brand-gray font-medium">
-            Call our London office: 
-            <a href="tel:02035356406" class="font-bold text-brand-dark hover:text-brand-cyan transition-colors">
-                +44 (0)20 3535 6406
-            </a>
-        </span>
-    </div>
-
     <nav class="flex justify-between items-center px-4 lg:px-10 py-4 bg-white/95 backdrop-blur-md sticky top-0 z-[100] border-b border-gray-200 shadow-sm w-full relative">
         <div onclick="navTo('Index')" class="flex items-center gap-3 group cursor-pointer">
             <img src="https://raw.githubusercontent.com/henryromanenko-creator/site-assets/main/Logo%20(1).png" alt="BridgFunder" class="h-8 md:h-9 w-auto object-contain" referrerpolicy="no-referrer">
@@ -73,8 +64,9 @@
         </div>
 
         <div class="flex items-center gap-4">
+            <!-- UPDATED NUMBER -->
             <a href="tel:02035356406" class="hidden xl:block font-bold text-[#0F172A] text-base hover:text-[#00E5C8] transition-colors">+44 (0)20 3535 6406</a>
-            <button onclick="navTo('form')" class="bg-[#FFD700] px-4 md:px-6 py-2.5 rounded-lg font-bold text-xs md:text-sm shadow-md text-[#0A192F] hover:shadow-lg transition-all">Access Calculator</button>
+            <button onclick="navTo('form')" class="bg-[#FFD700] px-4 md:px-6 py-2.5 rounded-lg font-bold text-xs md:text-sm shadow-md text-[#0A192F] hover:shadow-lg transition-all">Start Funding Enquiry</button>
             <button onclick="toggleMobileMenu()" class="lg:hidden text-[#0F172A] p-1"><i data-lucide="menu" class="w-7 h-7"></i></button>
         </div>
 
@@ -124,7 +116,7 @@
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                     <button onclick="navTo('form')" class="inline-block bg-brand-dark text-white px-8 py-3.5 rounded-lg font-bold text-base hover:bg-gray-800 transition-colors shadow-md">
-                        Calculate Funding Options
+                        Check Funding Options
                     </button>
                 </div>
             </div>
@@ -134,12 +126,12 @@
                 <div class="relative w-16 h-16 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl border border-white/20 flex items-center justify-center mx-auto mb-6 shadow-lg backdrop-blur-sm">
                     <i data-lucide="clipboard-edit" class="w-8 h-8 text-brand-gold drop-shadow-md"></i>
                 </div>
-                <h2 class="relative text-white text-2xl font-bold mb-4 tracking-tight drop-shadow-sm">Indicative Pricing Tool</h2>
+                <h2 class="relative text-white text-2xl font-bold mb-4 tracking-tight drop-shadow-sm">Free Funding Assessment</h2>
                 <p class="relative text-base text-gray-200 font-medium mb-8 leading-relaxed px-2">
-                    Stop waiting on rigid lenders. Plug in your project details, and our interactive tool will instantly identify the sharpest rates and terms available.
+                    Stop waiting on rigid lenders. Plug in your project details, and our network will instantly identify the sharpest rates and terms available.
                 </p>
                 <button onclick="navTo('form')" class="relative cta-btn block w-full font-bold py-4 rounded-xl text-base tracking-wide uppercase transition-all duration-300 hover:scale-[1.02]">
-                    Launch Calculator
+                    Start Funding Enquiry
                 </button>
             </div>
         </div>

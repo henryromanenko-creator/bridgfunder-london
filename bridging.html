@@ -35,6 +35,7 @@
 </head>
 <body class="antialiased min-h-screen flex flex-col">
 
+    <!-- SYNCED NAVIGATION -->
     <nav class="flex justify-between items-center px-4 lg:px-10 py-4 bg-white/95 backdrop-blur-md sticky top-0 z-[100] border-b border-gray-200 shadow-sm w-full relative">
         <div onclick="navTo('Index')" class="flex items-center gap-3 group cursor-pointer">
             <img src="https://raw.githubusercontent.com/henryromanenko-creator/site-assets/main/Logo%20(1).png" alt="BridgFunder" class="h-8 md:h-9 w-auto object-contain" referrerpolicy="no-referrer">
@@ -49,7 +50,7 @@
             <div class="relative group py-4">
                 <span class="nav-link text-base font-semibold text-gray-600 hover:text-[#0F172A] flex items-center gap-1 cursor-pointer">Services <i data-lucide="chevron-down" class="w-4 h-4"></i></span>
                 <div class="absolute top-full left-1/2 -translate-x-1/2 w-64 bg-white border border-gray-100 shadow-xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all p-2">
-                    <div onclick="navTo('Bridging')" class="block px-4 py-2.5 text-sm hover:bg-gray-50 rounded-lg cursor-pointer text-gray-700 font-medium">Bridging Finance</div>
+                    <div onclick="navTo('Bridging')" class="block px-4 py-2.5 text-sm hover:bg-gray-50 rounded-lg cursor-pointer text-brand-cyan font-bold bg-brand-cyan/5">Bridging Finance</div>
                     <div onclick="navTo('Development')" class="block px-4 py-2.5 text-sm hover:bg-gray-50 rounded-lg cursor-pointer text-gray-700 font-medium">Development Finance</div>
                     <div onclick="navTo('CommercialMortgages')" class="block px-4 py-2.5 text-sm hover:bg-gray-50 rounded-lg cursor-pointer text-gray-700 font-medium">Commercial Mortgages</div>
                     <div onclick="navTo('BTL')" class="block px-4 py-2.5 text-sm hover:bg-gray-50 rounded-lg cursor-pointer text-gray-700 font-medium">Buy-to-Let & Portfolio</div>
@@ -62,8 +63,8 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <a href="tel:07448880857" class="hidden xl:block font-bold text-[#0F172A] text-base">07448 880 857</a>
-            <button onclick="navTo('form')" class="bg-[#FFD700] px-4 md:px-6 py-2.5 rounded-lg font-bold text-xs md:text-sm shadow-md text-[#0A192F] hover:shadow-lg transition-all">Start Enquiry</button>
+            <a href="tel:02035356406" class="hidden xl:block font-bold text-[#0F172A] text-base hover:text-[#00E5C8] transition-colors">+44 (0)20 3535 6406</a>
+            <button onclick="navTo('form')" class="bg-[#FFD700] px-4 md:px-6 py-2.5 rounded-lg font-bold text-xs md:text-sm shadow-md text-[#0A192F] hover:shadow-lg transition-all">Start Funding Enquiry</button>
             <button onclick="toggleMobileMenu()" class="lg:hidden text-[#0F172A] p-1"><i data-lucide="menu" class="w-7 h-7"></i></button>
         </div>
 
@@ -72,7 +73,7 @@
                 <span onclick="navTo('Index')" class="font-bold text-lg text-[#0F172A] cursor-pointer">Home</span>
                 <div class="flex flex-col gap-2">
                     <span class="font-bold text-lg text-gray-400 border-b border-gray-100 pb-2">Services</span>
-                    <span onclick="navTo('Bridging')" class="font-semibold text-[#475569] pl-4 cursor-pointer py-1">Bridging Finance</span>
+                    <span onclick="navTo('Bridging')" class="font-bold text-brand-cyan pl-4 cursor-pointer py-1">Bridging Finance</span>
                     <span onclick="navTo('Development')" class="font-semibold text-[#475569] pl-4 cursor-pointer py-1">Development Finance</span>
                     <span onclick="navTo('CommercialMortgages')" class="font-semibold text-[#475569] pl-4 cursor-pointer py-1">Commercial Mortgages</span>
                     <span onclick="navTo('BTL')" class="font-semibold text-[#475569] pl-4 cursor-pointer py-1">Buy-to-Let & Portfolio</span>
@@ -81,6 +82,7 @@
                 </div>
                 <span onclick="navTo('Cases')" class="font-bold text-lg text-[#0F172A] cursor-pointer border-t border-gray-100 pt-4">Case Studies</span>
                 <span onclick="navTo('About')" class="font-bold text-lg text-[#0F172A] cursor-pointer">About</span>
+                <a href="tel:02035356406" class="font-bold text-lg text-brand-cyan cursor-pointer border-t border-gray-100 pt-4">Call: 0203 5356406</a>
             </div>
         </div>
     </nav>
@@ -182,6 +184,7 @@
         </div>
     </section>
 
+    <!-- SYNCED INSTITUTIONAL FOOTER -->
     <footer class="bg-white text-brand-gray py-16 border-t border-gray-200 mt-auto">
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
@@ -221,7 +224,11 @@
                 <ul class="space-y-4 text-sm text-brand-gray">
                     <li class="flex items-center gap-3">
                         <i data-lucide="phone" class="w-4 h-4 text-brand-cyan"></i> 
-                        <a href="tel:07448880857" class="hover:text-brand-dark transition-colors font-medium text-brand-dark">07448 880 857</a>
+                        <a href="tel:02035356406" class="hover:text-brand-dark transition-colors font-medium text-brand-dark">+44 (0)20 3535 6406</a>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-brand-cyan mt-1"></i> 
+                        <span class="font-medium text-brand-dark">80A Ruskin Avenue,<br>London, DA16 3QQ</span>
                     </li>
                     <li class="flex items-center gap-3">
                         <i data-lucide="mail" class="w-4 h-4 text-brand-cyan"></i> 
@@ -240,7 +247,7 @@
                 Sole Trader Mr Henrijs Romanenko, trading as BridgFunder London (FRN: 1051038) is an Appointed Representative of White Rose Finance Group Limited (FRN: 630772) who are directly authorised and regulated by the Financial Conduct Authority.
             </p>
             <p class="text-[10px] md:text-xs text-brand-gray leading-relaxed font-bold uppercase tracking-wide mb-8">
-                BRIDGFUNDER LONDON IS A CREDIT BROKER, NOT A LENDER. PLEASE MAKE BORROWING DECISIONS CAREFULLY. PROPERTY OR OTHER ASSETS OFFERED AS SECURITY MAY BE AT RISK IF YOU CANNOT KEEP UP WITH REPAYMENTS.
+                BRIDGFUNDER LONDON IS A CREDIT BROKER, NOT A LENDER. WE SOURCE FUNDING SOLUTIONS EXCLUSIVELY FOR UNREGULATED COMMERCIAL PROPERTY TRANSACTIONS AND CORPORATE ENTITIES. PLEASE MAKE BORROWING DECISIONS CAREFULLY. PROPERTY OR OTHER ASSETS OFFERED AS SECURITY MAY BE AT RISK IF YOU CANNOT KEEP UP WITH REPAYMENTS. REGISTERED ADDRESS: 80A RUSKIN AVENUE, LONDON, DA16 3QQ.
             </p>
             <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-semibold text-gray-500">
                 <span>© 2026 BridgFunder London. All rights reserved.</span>
@@ -251,7 +258,7 @@
             </div>
         </div>
     </div>
-</footer>
+    </footer>
 
     <script>
         lucide.createIcons();
@@ -308,20 +315,21 @@
         </svg>
     </a>
 
+    <!-- SYNCED COOKIE CONSENT STYLING -->
     <div id="cookie-consent-banner" class="fixed bottom-0 left-0 right-0 z-[10000] p-4 md:p-6 translate-y-full transition-transform duration-500 ease-in-out">
-        <div class="max-w-4xl mx-auto bg-navy/95 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl flex flex-col md:flex-row items-center gap-6">
+        <div class="max-w-4xl mx-auto bg-white border border-[#0A192F]/10 rounded-2xl p-6 shadow-2xl flex flex-col md:flex-row items-center gap-6">
             <div class="flex-1">
-                <h4 class="text-white font-bold mb-1 flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path><path d="M8.5 8.5v.01"></path><path d="M16 15.5v.01"></path><path d="M12 12v.01"></path><path d="M11 17v.01"></path><path d="M7 14v.01"></path></svg>
+                <h4 class="text-[#0A192F] font-bold mb-1 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A192F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path><path d="M8.5 8.5v.01"></path><path d="M16 15.5v.01"></path><path d="M12 12v.01"></path><path d="M11 17v.01"></path><path d="M7 14v.01"></path></svg>
                     Data & Privacy Consent
                 </h4>
-                <p class="text-gray-300 text-xs md:text-sm leading-relaxed">
+                <p class="text-[#0A192F] text-xs md:text-sm leading-relaxed font-semibold">
                     We use cookies to analyze site traffic and optimize your experience. By clicking "Accept All", you agree to our use of cookies as described in our 
-                    <a href="legal.html" class="text-gold hover:underline font-medium">Privacy Policy</a>.
+                    <a href="legal.html" class="text-blue-700 hover:underline font-bold">Privacy Policy</a>.
                 </p>
             </div>
             <div class="flex gap-3 w-full md:w-auto">
-                <button onclick="acceptCookies()" class="flex-1 md:flex-none bg-gold hover:bg-yellow-500 text-navy font-bold py-3 px-8 rounded-lg transition-all shadow-lg active:scale-95 text-sm">
+                <button onclick="acceptCookies()" class="flex-1 md:flex-none bg-[#0A192F] hover:bg-black text-white font-bold py-3 px-8 rounded-lg transition-all shadow-lg active:scale-95 text-sm">
                     Accept All
                 </button>
             </div>
@@ -347,4 +355,5 @@
         document.addEventListener('DOMContentLoaded', showBanner);
     </script>
 </body>
+</html>
 </html>

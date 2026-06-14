@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4WS0D3KBGJ"></script>
+    <!-- Google tag (gtag.js) - Updated for Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18239109883"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', { 'ad_storage': 'denied', 'analytics_storage': 'denied' });
       gtag('js', new Date());
-      gtag('config', 'G-4WS0D3KBGJ');
+      gtag('config', 'AW-18239109883');
     </script>
 
     <meta charset="UTF-8">
@@ -295,7 +297,7 @@
             window.location.href = target;
         }
 
-        // Mobile menu toggle logic
+        // MOBILE MENU TOGGLE
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
             if (menu.classList.contains('hidden')) {
@@ -307,7 +309,7 @@
             }
         }
 
-        // Newsletter Submission Logic pointing to your API
+        // NEWSLETTER SUBSCRIPTION LOGIC
         function submitNewsletter() {
             const email = document.getElementById('newsletterEmail').value.trim();
             if (!email) return;

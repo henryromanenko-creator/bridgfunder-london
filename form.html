@@ -406,6 +406,15 @@
                 // Do the math
                 generateMarketMatrix(getRawNumber(formData.propertyValue), getRawNumber(formData.loanAmount));
                 
+                // Fire Google Ads Conversion Tracking securely after database check passes
+                if (typeof gtag === 'function') {
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-18239109883/9Dw5CMjI8b4cEPv1ivlD',
+                        'value': 1.0,
+                        'currency': 'GBP'
+                    });
+                }
+                
                 // Hide Processing, Show Results
                 document.getElementById('processingStep').classList.remove('active'); document.getElementById('processingStep').classList.add('hidden');
                 document.getElementById('step5').classList.add('active', 'animate__fadeIn');

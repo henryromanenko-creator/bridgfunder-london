@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4WS0D3KBGJ"></script>
+    <!-- Google tag (gtag.js) - Updated for Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18239109883"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', { 'ad_storage': 'denied', 'analytics_storage': 'denied' });
       gtag('js', new Date());
-      gtag('config', 'G-4WS0D3KBGJ');
+      gtag('config', 'AW-18239109883');
     </script>
 
     <meta charset="UTF-8">
@@ -380,6 +382,7 @@
             const banner = document.getElementById('cookie-consent-banner');
             localStorage.setItem('bridgfunder_consent', 'true');
             banner.classList.add('translate-y-full');
+            gtag('consent', 'update', { 'ad_storage': 'granted', 'analytics_storage': 'granted' });
         }
 
         document.addEventListener('DOMContentLoaded', showBanner);

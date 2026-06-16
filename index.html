@@ -1,4 +1,154 @@
-<!-- === PROMOTIONAL VIDEO SECTION === -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) - Synced Google Ads & Pristine GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18239109883"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  
+  // Strict Privacy: Default everything to denied until banner is clicked
+  gtag('consent', 'default', { 
+    'ad_storage': 'denied', 
+    'analytics_storage': 'denied' 
+  });
+  
+  gtag('js', new Date());
+
+  // Main Google Ads Routing
+  gtag('config', 'AW-18239109883');
+  
+  // Fresh Google Analytics 4 Routing
+  gtag('config', 'G-77NLSS23Z5'); 
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>BridgFunder London | Commercial & Property Finance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { 'brand-bg': '#F4F7F8', 'brand-dark': '#0F172A', 'brand-gray': '#475569', 'brand-cyan': '#00E5C8', 'brand-gold': '#FFD700' }, fontFamily: { sans: ['"Public Sans"', 'sans-serif'] } } } }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { background-color: #F4F7F8; color: #0F172A; font-family: 'Public Sans', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
+        .glass-card { background: #FFFFFF; border: 1px solid #F1F5F9; border-radius: 16px; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        .glass-card:hover { border-color: #E2E8F0; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08); transform: translateY(-2px); }
+        .hero-smoked-glass { background: rgba(10, 25, 47, 0.65); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6); }
+        .cta-btn { background: linear-gradient(135deg, #FFD700 0%, #F5C518 100%); transition: all 0.3s ease; color: #0A192F; cursor: pointer; }
+        .carousel-slide { position: absolute; inset: 0; background-size: cover; background-position: center; transition: opacity 1.5s ease-in-out; opacity: 0; filter: brightness(0.85); }
+        .carousel-slide.active { opacity: 1; }
+        .ticker-wrap { overflow: hidden; white-space: nowrap; width: 100%; }
+        .ticker-move { display: inline-block; animation: ticker 40s linear infinite; }
+        @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+        .nav-link { cursor: pointer; transition: color 0.2s; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <nav class="flex justify-between items-center px-4 lg:px-10 py-4 bg-white/95 backdrop-blur-md sticky top-0 z-[100] border-b border-gray-200 shadow-sm w-full relative">
+        <div onclick="navTo('Index')" class="flex items-center gap-3 group cursor-pointer">
+            <img src="https://raw.githubusercontent.com/henryromanenko-creator/site-assets/main/Logo%20(1).png" alt="BridgFunder" class="h-8 md:h-9 w-auto object-contain" referrerpolicy="no-referrer">
+            <div class="flex flex-col border-l-2 border-gray-200 pl-3">
+                <span class="font-bold text-[#0F172A] text-lg md:text-xl leading-none tracking-tight">BridgFunder</span>
+                <span class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-gray-500 font-bold mt-1">London</span>
+            </div>
+        </div>
+
+        <div class="hidden lg:flex items-center gap-8">
+            <span onclick="navTo('Index')" class="nav-link text-base font-semibold text-gray-600 hover:text-[#0F172A]">Home</span>
+            <div class="relative group py-4">
+                <span class="nav-link text-base font-semibold text-gray-600 hover:text-[#0F172A] flex items-center gap-1 cursor-pointer">Services <i data-lucide="chevron-down" class="w-4 h-4"></i></span>
+                <div class="absolute top-full left-1/2 -translate-x-1/2 w-64 bg-white border border-gray-100 shadow-xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all p-2">
+                    <div onclick="navTo('Bridging')" class="block px-4 py-2.5 text-sm hover:bg-gray-50 rounded-lg cursor-pointer text-gray-700 font-medium">Bridging Finance</div>
+                    <div onclick="navTo('Development')" class="block px-4 py-2.5 text-sm hover:bg-gray-50 rounded-lg cursor-pointer text-gray-700 font-medium">Development Finance</div>
+                    <div onclick="navTo('CommercialMortgages')" class="block px-4 py-2.5 text-sm hover:bg-gray-50 rounded-lg cursor-pointer text-gray-700 font-medium">Commercial Mortgages</div>
+                    <div onclick="navTo('BTL')" class="block px-4 py-2.5 text-sm hover:bg-gray-50 rounded-lg cursor-pointer text-gray-700 font-medium">Buy-to-Let & Portfolio</div>
+                    <div onclick="navTo('AssetFinance')" class="block px-4 py-2.5 text-sm hover:bg-gray-50 rounded-lg cursor-pointer text-gray-700 font-medium">Asset Finance</div>
+                    <div onclick="navTo('BridgeRefinance')" class="block px-4 py-2.5 text-sm hover:bg-gray-50 rounded-lg cursor-pointer text-[#00E5C8] font-bold border-t border-gray-100 mt-1">Bridge Refinance</div>
+                </div>
+            </div>
+            <span onclick="navTo('Cases')" class="nav-link text-base font-semibold text-gray-600 hover:text-[#0F172A]">Case Studies</span>
+            <span onclick="navTo('About')" class="nav-link text-base font-semibold text-gray-600 hover:text-[#0F172A]">About</span>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <a href="tel:02035356406" class="hidden xl:block font-bold text-[#0F172A] text-base hover:text-[#00E5C8] transition-colors">+44 (0)20 3535 6406</a>
+            <button onclick="navTo('form')" class="bg-[#FFD700] px-4 md:px-6 py-2.5 rounded-lg font-bold text-xs md:text-sm shadow-md text-[#0A192F] hover:shadow-lg transition-all">Start Funding Enquiry</button>
+            <button onclick="toggleMobileMenu()" class="lg:hidden text-[#0F172A] p-1"><i data-lucide="menu" class="w-7 h-7"></i></button>
+        </div>
+
+        <div id="mobileMenu" class="absolute top-full left-0 w-full bg-white shadow-2xl border-t border-gray-100 hidden lg:hidden flex-col origin-top animate__animated animate__fadeInDown animate__faster">
+            <div class="p-4 flex flex-col gap-4 border-b border-gray-100">
+                <span onclick="navTo('Index')" class="font-bold text-lg text-[#0F172A] cursor-pointer">Home</span>
+                <div class="flex flex-col gap-2">
+                    <span class="font-bold text-lg text-gray-400 border-b border-gray-100 pb-2">Services</span>
+                    <span onclick="navTo('Bridging')" class="font-semibold text-[#475569] pl-4 cursor-pointer py-1">Bridging Finance</span>
+                    <span onclick="navTo('Development')" class="font-semibold text-[#475569] pl-4 cursor-pointer py-1">Development Finance</span>
+                    <span onclick="navTo('CommercialMortgages')" class="font-semibold text-[#475569] pl-4 cursor-pointer py-1">Commercial Mortgages</span>
+                    <span onclick="navTo('BTL')" class="font-semibold text-[#475569] pl-4 cursor-pointer py-1">Buy-to-Let & Portfolio</span>
+                    <span onclick="navTo('AssetFinance')" class="font-semibold text-[#475569] pl-4 cursor-pointer py-1">Asset Finance</span>
+                    <span onclick="navTo('BridgeRefinance')" class="font-bold text-[#00E5C8] pl-4 cursor-pointer py-1">Bridge Refinance</span>
+                </div>
+                <span onclick="navTo('Cases')" class="font-bold text-lg text-[#0F172A] cursor-pointer border-t border-gray-100 pt-4">Case Studies</span>
+                <span onclick="navTo('About')" class="font-bold text-lg text-[#0F172A] cursor-pointer">About</span>
+                <a href="tel:02035356406" class="font-bold text-lg text-brand-cyan cursor-pointer border-t border-gray-100 pt-4">Call: 0203 5356406</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="ticker-wrap bg-white border-b border-gray-200 py-3 font-sans text-xs md:text-sm font-bold uppercase tracking-widest text-[#475569]">
+        <div class="ticker-move">
+            FCA REGULATED (FRN 1051038) &nbsp;•&nbsp; WHOLE OF MARKET ACCESS &nbsp;•&nbsp; 300+ SPECIALIST LENDERS &nbsp;•&nbsp; BRIDGING MAX LTV: 75% &nbsp;•&nbsp; AUCTION SPEED: 10-DAY COMPLETION &nbsp;•&nbsp; ASSET FINANCE: 1-7 YEAR TERMS &nbsp;•&nbsp;
+        </div>
+    </div>
+
+    <section class="relative pt-20 pb-24 md:py-24 px-4 md:px-6 min-h-[85vh] flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-brand-dark">
+            <div id="carousel-1" class="carousel-slide"></div>
+            <div id="carousel-2" class="carousel-slide"></div>
+            <div id="carousel-3" class="carousel-slide"></div>
+        </div>
+        <div class="absolute inset-0 z-0 bg-gradient-to-b md:bg-gradient-to-r from-[#F4F7F8] via-[#F4F7F8]/90 md:via-[#F4F7F8]/85 to-[#F4F7F8]/10 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10 w-full">
+            <div class="animate__animated animate__fadeInLeft text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-dark/5 border border-brand-dark/10 text-brand-dark text-xs font-bold tracking-widest uppercase mb-6">
+                    <i data-lucide="bar-chart-2" class="w-3 h-3 text-brand-cyan"></i> Whole of Market Access
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-dark leading-[1.15] mb-6 tracking-tight">
+                    Specialist Finance.<br>Built on Results.
+                </h1>
+                <p class="text-lg md:text-xl text-brand-dark mb-8 leading-relaxed font-medium max-w-lg mx-auto md:mx-0">
+                    We bypass high-street delays to secure the capital you need. By leveraging our network of 300+ specialist lenders, we negotiate highly competitive rates for UK developers, landlords, and SMEs.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <button onclick="navTo('form')" class="inline-block bg-brand-dark text-white px-8 py-3.5 rounded-lg font-bold text-base hover:bg-gray-800 transition-colors shadow-md">
+                        Check Funding Options
+                    </button>
+                </div>
+            </div>
+
+            <div class="hero-smoked-glass rounded-[32px] p-8 md:p-12 animate__animated animate__fadeInRight text-center relative overflow-hidden max-w-md mx-auto lg:ml-auto lg:mr-0 flex flex-col justify-center border border-white/20 shadow-2xl">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-brand-gold/20 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="relative w-16 h-16 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl border border-white/20 flex items-center justify-center mx-auto mb-6 shadow-lg backdrop-blur-sm">
+                    <i data-lucide="clipboard-edit" class="w-8 h-8 text-brand-gold drop-shadow-md"></i>
+                </div>
+                <h2 class="relative text-white text-2xl font-bold mb-4 tracking-tight drop-shadow-sm">Free Funding Assessment</h2>
+                <p class="relative text-base text-gray-200 font-medium mb-8 leading-relaxed px-2">
+                    Stop waiting on rigid lenders. Plug in your project details, and our network will instantly identify the sharpest rates and terms available.
+                </p>
+                <button onclick="navTo('form')" class="relative cta-btn block w-full font-bold py-4 rounded-xl text-base tracking-wide uppercase transition-all duration-300 hover:scale-[1.02]">
+                    Start Funding Enquiry
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- === PROMOTIONAL VIDEO SECTION === -->
     <section class="py-16 md:py-24 bg-white border-b border-gray-200 px-4 md:px-6 relative">
         <div class="max-w-5xl mx-auto text-center animate__animated animate__fadeInUp">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-dark/5 border border-brand-dark/10 text-brand-dark text-xs font-bold tracking-widest uppercase mb-4">
@@ -18,3 +168,350 @@
         </div>
     </section>
     <!-- === END PROMOTIONAL VIDEO SECTION === -->
+
+    <section id="sectors" class="py-20 md:py-24 px-4 md:px-6 max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2 class="text-3xl font-bold text-brand-dark mb-4 tracking-tight">Who We Partner With</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+            <div class="glass-card p-8 flex flex-col group cursor-pointer" onclick="navTo('Development')">
+                <div class="h-48 w-full rounded-xl mb-6 relative overflow-hidden border border-gray-100 bg-gray-100">
+                     <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-[1.04]" style="background-image: url('https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Index_Property%20Developers.png');"></div>
+                </div>
+                <h3 class="text-brand-dark font-bold text-2xl mb-3">Property Developers</h3>
+                <p class="text-base text-brand-gray leading-relaxed mb-6 flex-grow">Reliable, high-leverage bridging and development finance to get your projects out of the ground and completed on time.</p>
+                <div class="text-base font-bold text-brand-dark flex items-center gap-2 group-hover:text-brand-cyan transition-colors mt-auto">Learn More <i data-lucide="arrow-right" class="w-5 h-5"></i></div>
+            </div>
+            <div class="glass-card p-8 flex flex-col group cursor-pointer" onclick="navTo('BTL')">
+                <div class="h-48 w-full rounded-xl mb-6 relative overflow-hidden border border-gray-100 bg-gray-100">
+                     <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-[1.04]" style="background-image: url('https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Index_Professional%20Landlords.png');"></div>
+                </div>
+                <h3 class="text-brand-dark font-bold text-2xl mb-3">Professional Landlords</h3>
+                <p class="text-base text-brand-gray leading-relaxed mb-6 flex-grow">From your first SPV to complex HMOs and portfolio refinancing, we structure loans designed to maximize your yield and unlock equity.</p>
+                <div class="text-base font-bold text-brand-dark flex items-center gap-2 group-hover:text-brand-cyan transition-colors mt-auto">Learn More <i data-lucide="arrow-right" class="w-5 h-5"></i></div>
+            </div>
+            <div class="glass-card p-8 flex flex-col group cursor-pointer" onclick="navTo('AssetFinance')">
+                <div class="h-48 w-full rounded-xl mb-6 relative overflow-hidden border border-gray-100 bg-gray-100">
+                     <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-[1.04]" style="background-image: url('https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Index_SME%20Business%20Owners.png');"></div>
+                </div>
+                <h3 class="text-brand-dark font-bold text-2xl mb-3">SME Business Owners</h3>
+                <p class="text-base text-brand-gray leading-relaxed mb-6 flex-grow">Scale your operations without diluting your business. We secure working capital, asset finance, and swift invoice factoring.</p>
+                <div class="text-base font-bold text-brand-dark flex items-center gap-2 group-hover:text-brand-cyan transition-colors mt-auto">Learn More <i data-lucide="arrow-right" class="w-5 h-5"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 md:py-24 bg-white border-y border-brand-border px-4 md:px-6 relative">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-brand-dark mb-4 tracking-tight">Competitive Finance Facilities</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div onclick="navTo('Bridging')" class="glass-card p-8 hover:-translate-y-1 transition-all cursor-pointer group">
+                    <i data-lucide="zap" class="w-8 h-8 text-brand-cyan mb-4 group-hover:text-brand-gold transition-colors"></i>
+                    <h3 class="text-brand-dark font-bold text-lg mb-2">Bridging Finance</h3>
+                    <p class="text-sm text-brand-gray leading-relaxed">Rapid short-term capital up to 75% LTV for auction purchases, chain-breaking, or heavy refurbishments.</p>
+                </div>
+                <div onclick="navTo('Development')" class="glass-card p-8 hover:-translate-y-1 transition-all cursor-pointer group">
+                    <i data-lucide="hammer" class="w-8 h-8 text-brand-cyan mb-4 group-hover:text-brand-gold transition-colors"></i>
+                    <h3 class="text-brand-dark font-bold text-lg mb-2">Development Finance</h3>
+                    <p class="text-sm text-brand-gray leading-relaxed">Staged drawdown facilities tailored for ground-up builds, conversions, and permitted developments.</p>
+                </div>
+                <div onclick="navTo('CommercialMortgages')" class="glass-card p-8 hover:-translate-y-1 transition-all cursor-pointer group">
+                    <i data-lucide="building-2" class="w-8 h-8 text-brand-cyan mb-4 group-hover:text-brand-gold transition-colors"></i>
+                    <h3 class="text-brand-dark font-bold text-lg mb-2">Commercial Mortgages</h3>
+                    <p class="text-sm text-brand-gray leading-relaxed">Long-term, competitive debt structures for owner-occupiers and high-yield commercial investors.</p>
+                </div>
+                <div onclick="navTo('BTL')" class="glass-card p-8 hover:-translate-y-1 transition-all cursor-pointer group">
+                    <i data-lucide="home" class="w-8 h-8 text-brand-cyan mb-4 group-hover:text-brand-gold transition-colors"></i>
+                    <h3 class="text-brand-dark font-bold text-lg mb-2">Buy-to-Let & Portfolio</h3>
+                    <p class="text-sm text-brand-gray leading-relaxed">Specialist rates and stress-tested facilities for Limited Companies, Ex-pats, and multi-unit blocks.</p>
+                </div>
+                <div onclick="navTo('AssetFinance')" class="glass-card p-8 hover:-translate-y-1 transition-all cursor-pointer group">
+                    <i data-lucide="briefcase" class="w-8 h-8 text-brand-cyan mb-4 group-hover:text-brand-gold transition-colors"></i>
+                    <h3 class="text-brand-dark font-bold text-lg mb-2">Asset & Invoice Finance</h3>
+                    <p class="text-sm text-brand-gray leading-relaxed">Unlock up to 90% of unpaid invoices within 24 hours to preserve operational cashflow and liquidity.</p>
+                </div>
+                <div onclick="navTo('form')" class="glass-card p-8 hover:-translate-y-1 transition-all bg-brand-gold/5 cursor-pointer group">
+                    <i data-lucide="coins" class="w-8 h-8 text-brand-dark mb-4 group-hover:text-brand-gold transition-colors"></i>
+                    <h3 class="text-brand-dark font-bold text-lg mb-2">Working Capital</h3>
+                    <p class="text-sm text-brand-gray leading-relaxed">Fast-track, unsecured business loans to support rapid expansion, tax liabilities, or daily operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 md:py-24 px-4 md:px-6 max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-brand-dark mb-4 tracking-tight">How We Secure Your Funding</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 relative text-center">
+            <div class="flex flex-col items-center">
+                <div class="w-20 h-20 bg-white rounded-full border-4 border-[#F4F7F8] shadow-sm flex items-center justify-center mb-6"><i data-lucide="clipboard-list" class="w-8 h-8 text-brand-cyan"></i></div>
+                <h4 class="font-bold text-brand-dark text-xl mb-3">1. The Consultation</h4>
+                <p class="text-sm md:text-base text-brand-gray leading-relaxed">No jargon, just a straight-talking discussion about your project, timeline, and exactly what you need the capital to achieve.</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <div class="w-20 h-20 bg-white rounded-full border-4 border-[#F4F7F8] shadow-sm flex items-center justify-center mb-6"><i data-lucide="arrow-right-left" class="w-8 h-8 text-brand-cyan"></i></div>
+                <h4 class="font-bold text-brand-dark text-xl mb-3">2. The Market Search</h4>
+                <p class="text-sm md:text-base text-brand-gray leading-relaxed">We do the heavy lifting. We benchmark your scenario across 300+ specialist lenders to negotiate the sharpest rates and best terms.</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <div class="w-20 h-20 bg-white rounded-full border-4 border-[#F4F7F8] shadow-sm flex items-center justify-center mb-6"><i data-lucide="check-circle" class="w-8 h-8 text-brand-cyan"></i></div>
+                <h4 class="font-bold text-brand-dark text-xl mb-3">3. The Execution</h4>
+                <p class="text-sm md:text-base text-brand-gray leading-relaxed">We stand by your side through the valuations and legals, proactively managing the paperwork so your funds draw down on time.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-20 bg-brand-dark relative border-t border-brand-dark/80">
+        <div class="absolute inset-0 bg-[url('https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Index_Carousel_1.png')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>
+        
+        <div class="max-w-3xl mx-auto px-4 md:px-6 relative z-10 text-center">
+            <i data-lucide="mail-plus" class="w-12 h-12 text-brand-gold mx-auto mb-6 drop-shadow-lg"></i>
+            <h2 class="text-3xl font-bold text-white mb-4 tracking-tight">Stay Ahead of the Market</h2>
+            <p class="text-base md:text-lg text-gray-300 mb-8 leading-relaxed">
+                Join our exclusive network to receive the latest rate drops, lending criteria updates, and specialist commercial finance insights directly to your inbox.
+            </p>
+            
+            <form id="subscribeForm" onsubmit="event.preventDefault(); submitNewsletter();" class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+                <input type="email" id="newsletterEmail" required placeholder="Enter your email address" class="flex-grow bg-white/10 border border-white/20 text-white placeholder-gray-400 px-5 py-4 rounded-xl focus:outline-none focus:border-brand-gold transition-colors shadow-inner">
+                <button type="submit" id="newsletterBtn" class="cta-btn px-8 py-4 rounded-xl font-bold text-base whitespace-nowrap flex items-center justify-center gap-2 shadow-lg">
+                    Subscribe <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+            </form>
+            
+            <div id="newsletterSuccess" class="hidden mt-6 text-brand-cyan font-semibold flex flex-col items-center justify-center gap-2 animate__animated animate__fadeIn">
+                <i data-lucide="check-circle" class="w-8 h-8 mb-2"></i> 
+                <span>Subscription successful! Welcome to the network.</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white text-brand-gray py-16 border-t border-gray-200 mt-auto">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+            
+            <div class="lg:col-span-1">
+                <div class="flex items-center gap-3 mb-6">
+                    <img src="https://raw.githubusercontent.com/henryromanenko-creator/site-assets/main/Logo%20(1).png" alt="BridgFunder London" class="h-8 w-auto object-contain" referrerpolicy="no-referrer">
+                    <span class="font-bold text-brand-dark text-xl tracking-tight">BridgFunder</span>
+                </div>
+                <p class="text-sm text-brand-gray leading-relaxed">Specialist commercial finance bridging the gap for developers, landlords, and SMEs.</p>
+            </div>
+            
+            <div>
+                <h4 class="font-bold text-brand-dark mb-6 uppercase tracking-widest text-xs">Quick Links</h4>
+                <ul class="space-y-3 text-sm text-brand-gray">
+                    <li><span onclick="navTo('Index')" class="hover:text-brand-dark cursor-pointer transition-colors">Home</span></li>
+                    <li><span onclick="navTo('About')" class="hover:text-brand-dark cursor-pointer transition-colors">About Us</span></li>
+                    <li><span onclick="navTo('Cases')" class="hover:text-brand-dark cursor-pointer transition-colors">Case Studies</span></li>
+                    <li><span onclick="navTo('Legal')" class="hover:text-brand-dark cursor-pointer transition-colors">Legal & Compliance</span></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-brand-dark mb-6 uppercase tracking-widest text-xs">Core Services</h4>
+                <ul class="space-y-3 text-sm text-brand-gray">
+                    <li><span onclick="navTo('Bridging')" class="hover:text-brand-dark cursor-pointer transition-colors">Bridging Finance</span></li>
+                    <li><span onclick="navTo('Development')" class="hover:text-brand-dark cursor-pointer transition-colors">Development Finance</span></li>
+                    <li><span onclick="navTo('CommercialMortgages')" class="hover:text-brand-dark cursor-pointer transition-colors">Commercial Mortgages</span></li>
+                    <li><span onclick="navTo('BTL')" class="hover:text-brand-dark cursor-pointer transition-colors">Buy-to-Let & Portfolio</span></li>
+                    <li><span onclick="navTo('AssetFinance')" class="hover:text-brand-dark cursor-pointer transition-colors">Asset & Invoice Finance</span></li>
+                    <li><span onclick="navTo('BridgeRefinance')" class="hover:text-brand-dark cursor-pointer transition-colors text-brand-cyan font-bold">Bridge Refinance</span></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-brand-dark mb-6 uppercase tracking-widest text-xs">Contact Us</h4>
+                <ul class="space-y-4 text-sm text-brand-gray">
+                    <li class="flex items-center gap-3">
+                        <i data-lucide="phone" class="w-4 h-4 text-brand-cyan"></i> 
+                        <a href="tel:02035356406" class="hover:text-brand-dark transition-colors font-medium text-brand-dark">+44 (0)20 3535 6406</a>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-brand-cyan mt-1"></i> 
+                        <span class="font-medium text-brand-dark">80A Ruskin Avenue,<br>London, DA16 3QQ</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i data-lucide="mail" class="w-4 h-4 text-brand-cyan"></i> 
+                        <a href="mailto:contact@bridgfunderlondon.co.uk" class="hover:text-brand-dark transition-colors">contact@bridgfunderlondon.co.uk</a>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i data-lucide="message-circle" class="w-4 h-4 text-[#25D366]"></i> 
+                        <a href="https://wa.me/447448880857" target="_blank" class="hover:text-[#25D366] transition-colors font-medium">WhatsApp Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-200 pt-8 text-center md:text-left">
+            <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed font-medium mb-4">
+                Sole Trader Mr Henrijs Romanenko, trading as BridgFunder London (FRN: 1051038) is an Appointed Representative of White Rose Finance Group Limited (FRN: 630772) who are directly authorised and regulated by the Financial Conduct Authority.
+            </p>
+            <p class="text-[10px] md:text-xs text-brand-gray leading-relaxed font-bold uppercase tracking-wide mb-8">
+                BRIDGFUNDER LONDON IS A CREDIT BROKER, NOT A LENDER. WE SOURCE FUNDING SOLUTIONS EXCLUSIVELY FOR UNREGULATED COMMERCIAL PROPERTY TRANSACTIONS AND CORPORATE ENTITIES. PLEASE MAKE BORROWING DECISIONS CAREFULLY. PROPERTY OR OTHER ASSETS OFFERED AS SECURITY MAY BE AT RISK IF YOU CANNOT KEEP UP WITH REPAYMENTS. REGISTERED ADDRESS: 80A RUSKIN AVENUE, LONDON, DA16 3QQ.
+            </p>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-semibold text-gray-500">
+                <span>© 2026 BridgFunder London. All rights reserved.</span>
+                <div class="flex gap-4">
+                    <span onclick="navTo('Legal')" class="hover:text-brand-dark cursor-pointer transition-colors">Privacy Policy</span>
+                    <span onclick="navTo('Legal')" class="hover:text-brand-dark cursor-pointer transition-colors">Terms of Service</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // GITHUB ROUTING - Pointing to .html files
+        function navTo(page) {
+            let target = page.toLowerCase() === 'index' ? 'index.html' : page.toLowerCase() + '.html';
+            window.location.href = target;
+        }
+
+        // MOBILE MENU TOGGLE
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+            }
+        }
+
+        // NEWSLETTER API LOGIC
+        const GOOGLE_API_URL = "https://script.google.com/macros/s/AKfycbwvP4m1Fxt2IuRXXWA0UBSh6NlUAtGv5xTSY09mVHRWQHfGE_JuiGkC3k4axOiYpFMDzg/exec"; 
+
+        function submitNewsletter() {
+            const email = document.getElementById('newsletterEmail').value.trim();
+            if (!email) return;
+
+            const btn = document.getElementById('newsletterBtn');
+            btn.innerHTML = 'Subscribing... <i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i>';
+            btn.disabled = true;
+            lucide.createIcons();
+
+            fetch(GOOGLE_API_URL + "?action=subscribe", {
+                method: "POST",
+                body: JSON.stringify({ email: email }),
+                headers: { "Content-Type": "text/plain;charset=utf-8" }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('subscribeForm').classList.add('hidden');
+                document.getElementById('newsletterSuccess').classList.remove('hidden');
+            })
+            .catch(error => {
+                alert('There was an issue subscribing. Please try again.');
+                btn.innerHTML = 'Subscribe <i data-lucide="arrow-right" class="w-4 h-4"></i>';
+                btn.disabled = false;
+                lucide.createIcons();
+            });
+        }
+
+        // HERO CAROUSEL LOGIC
+        const imageUrls = [
+            'https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Index_Carousel_3.png',
+            'https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Index_Carousel_2.png',
+            'https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Index_Carousel_1.png'
+        ];
+        
+        let currentSlide = 1;
+        let carouselStarted = false;
+
+        imageUrls.forEach((url, index) => {
+            const img = new Image();
+            img.onload = () => {
+                const slide = document.getElementById('carousel-' + (index + 1));
+                if (slide) slide.style.backgroundImage = `url('${url}')`;
+                if (index === 0 && !carouselStarted) {
+                    carouselStarted = true;
+                    document.getElementById('carousel-1').classList.add('active');
+                    setInterval(() => {
+                        const currentEl = document.getElementById('carousel-' + currentSlide);
+                        if (currentEl) currentEl.classList.remove('active');
+                        currentSlide = currentSlide >= 3 ? 1 : currentSlide + 1;
+                        const nextEl = document.getElementById('carousel-' + currentSlide);
+                        if (nextEl) nextEl.classList.add('active');
+                    }, 5500); 
+                }
+            };
+            img.src = url;
+        });
+    </script>
+
+    <style>
+        @keyframes pulse-whatsapp {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            padding: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            animation: pulse-whatsapp 2s infinite;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            animation: none;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+    </style>
+    <a href="https://wa.me/447448880857" target="_blank" aria-label="Chat on WhatsApp" class="whatsapp-float">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.012c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+   <div id="cookie-consent-banner" class="fixed bottom-0 left-0 right-0 z-[10000] p-4 md:p-6 translate-y-full transition-transform duration-500 ease-in-out">
+        <div class="max-w-4xl mx-auto bg-white border border-[#0A192F]/10 rounded-2xl p-6 shadow-2xl flex flex-col md:flex-row items-center gap-6">
+            <div class="flex-1">
+                <h4 class="text-[#0A192F] font-bold mb-1 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A192F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path><path d="M8.5 8.5v.01"></path><path d="M16 15.5v.01"></path><path d="M12 12v.01"></path><path d="M11 17v.01"></path><path d="M7 14v.01"></path></svg>
+                    Data & Privacy Consent
+                </h4>
+                <p class="text-[#0A192F] text-xs md:text-sm leading-relaxed font-semibold">
+                    We use cookies to analyze site traffic and optimize your experience. By clicking "Accept All", you agree to our use of cookies as described in our 
+                    <a href="legal.html" class="text-blue-700 hover:underline font-bold">Privacy Policy</a>.
+                </p>
+            </div>
+            <div class="flex gap-3 w-full md:w-auto">
+                <button onclick="acceptCookies()" class="flex-1 md:flex-none bg-[#0A192F] hover:bg-black text-white font-bold py-3 px-8 rounded-lg transition-all shadow-lg active:scale-95 text-sm">
+                    Accept All
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showBanner() {
+            const banner = document.getElementById('cookie-consent-banner');
+            if (!localStorage.getItem('bridgfunder_consent')) {
+                setTimeout(() => { banner.classList.remove('translate-y-full'); }, 1500);
+            }
+        }
+        function acceptCookies() {
+            document.getElementById('cookie-consent-banner').classList.add('translate-y-full');
+            localStorage.setItem('bridgfunder_consent', 'true');
+            gtag('consent', 'update', { 'ad_storage': 'granted', 'analytics_storage': 'granted' });
+        }
+        document.addEventListener('DOMContentLoaded', showBanner);
+    </script>
+</body>
+</html>

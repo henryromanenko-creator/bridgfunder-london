@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) - Synced Google Ads & Pristine GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18239109883"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18239109883"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -264,8 +263,10 @@
         
         let formData = { category: '', goal: '', propertyValue: '', loanAmount: '', currentLender: '', fullName: '', email: '', phone: '', additionalInfo: '', privacyAccepted: false };
         
-        // ✅ NEW: Your Zoho Catalyst API endpoint
-        const BRIDGFUNDER_API_URL = "https://bridgfunderformhandler-20115858965.development.catalystserverless.eu/submit-lead";
+        // -------------------------------------------------------------
+        // LIVE GOOGLE APPS SCRIPT ENDPOINT
+        // -------------------------------------------------------------
+        const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbys0-RjXnjfZ_XAo0RuBb7ZugqrHe00C13JCClPyVAZVe4tIjePerstmJ3pFiDUwVgtYQ/exec";
 
         function navTo(page) {
             let target = page.toLowerCase() === 'index' ? 'index.html' : page.toLowerCase() + '.html';
@@ -406,12 +407,16 @@
             document.getElementById('processingStep').classList.remove('hidden'); document.getElementById('processingStep').classList.add('active');
 
             try {
-                // ✅ Send data to your Zoho Catalyst API
-                const response = await fetch(BRIDGFUNDER_API_URL, {
+                // Core Update: Push to Google Apps Script
+                // action parameter appended to URL for robust GS routing
+                const endpoint = GOOGLE_APPS_SCRIPT_URL + "?action=enquiry";
+                
+                const response = await fetch(endpoint, {
                     method: "POST",
+                    // Using text/plain prevents the browser from sending an OPTIONS preflight request
+                    // which often fails on Google's 302 redirect sequence.
                     headers: {
-                        "Content-Type": "application/json",
-                        "Accept": "application/json"
+                        "Content-Type": "text/plain;charset=utf-8"
                     },
                     body: JSON.stringify(formData)
                 });

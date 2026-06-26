@@ -263,7 +263,9 @@
         lucide.createIcons();
         
         let formData = { category: '', goal: '', propertyValue: '', loanAmount: '', currentLender: '', fullName: '', email: '', phone: '', additionalInfo: '', privacyAccepted: false };
-        const GOOGLE_API_URL = "https://script.google.com/macros/s/AKfycbwvP4m1Fxt2IuRXXWA0UBSh6NlUAtGv5xTSY09mVHRWQHfGE_JuiGkC3k4axOiYpFMDzg/exec";
+        
+        // ✅ NEW: Your Zoho Catalyst API endpoint
+        const BRIDGFUNDER_API_URL = "https://bridgfunderformhandler-20115858965.development.catalystserverless.eu/submit-lead";
 
         function navTo(page) {
             let target = page.toLowerCase() === 'index' ? 'index.html' : page.toLowerCase() + '.html';
@@ -326,7 +328,7 @@
 
             if(formData.goal.includes('Development')) {
                 product = "Development / Heavy Refurbishment"; maxLtvLimit = 70; isRetained = true; termAssumed = 18;
-                rateStr = "9.50% p.a."; numericRate = 0.095; // annual
+                rateStr = "9.50% p.a."; numericRate = 0.095;
                 numericFee = 0.02; feeStr = "2.00%";
             } else if (formData.goal.includes('Asset finance')) {
                 product = "Asset Finance / Cashflow"; maxLtvLimit = 100; isRetained = false;
@@ -334,7 +336,7 @@
                 numericFee = 0; feeStr = "£350 Doc Fee";
             } else if(formData.category === 'Property Developer' && formData.goal.includes('Exit bridge')) {
                 product = "Unregulated Bridging Finance"; maxLtvLimit = 75; isRetained = true; termAssumed = 12;
-                rateStr = "0.95% p.m."; numericRate = 0.0095; // monthly
+                rateStr = "0.95% p.m."; numericRate = 0.0095;
                 numericFee = 0.02; feeStr = "2.00%";
             } else if (formData.category === 'Professional Landlord') {
                 product = "Buy-to-Let / Portfolio Mortgage"; maxLtvLimit = 75; isRetained = false;
@@ -346,7 +348,6 @@
                 numericFee = 0.025; feeStr = "2.50%";
             }
 
-            // Flag LTV limits
             let ltvDisplay = ltv.toFixed(1) + "%";
             if(ltv > maxLtvLimit) { ltvDisplay += " <span class='block text-[10px] text-red-400 mt-1'>(Exceeds Standard Limits)</span>"; }
 
@@ -355,20 +356,13 @@
             document.getElementById('resRate').innerText = rateStr;
             document.getElementById('resFee').innerText = feeStr;
             
-            // Do the Math
             document.getElementById('resGross').innerText = formatMoney(loan);
             
             let calcFee = (numericFee === 0) ? 350 : (loan * numericFee);
             
             if (isRetained) {
-                // For Bridging/Dev: Retained Interest & Net Advance
                 document.getElementById('resTermNote').innerText = `*Assuming a ${termAssumed}-month term`;
-                let calcInterest = 0;
-                if (product.includes("Development")) {
-                    calcInterest = loan * numericRate * (termAssumed/12); 
-                } else {
-                    calcInterest = loan * numericRate * termAssumed; 
-                }
+                let calcInterest = product.includes("Development") ? loan * numericRate * (termAssumed/12) : loan * numericRate * termAssumed;
                 let netAdvance = loan - calcFee - calcInterest;
                 
                 document.getElementById('costLabel1').innerText = `- Arr. Fee Deducted (${feeStr}):`;
@@ -381,7 +375,6 @@
                 document.getElementById('netValue').innerText = formatMoney(netAdvance);
                 
             } else {
-                // For BTL/Commercial: Monthly Payment (Interest Only assumption)
                 document.getElementById('resTermNote').innerText = `*Assuming Interest-Only structure`;
                 document.getElementById('costLabel1').innerText = `Est. Arrangement Fee:`;
                 document.getElementById('costValue1').innerText = formatMoney(calcFee);
@@ -413,13 +406,23 @@
             document.getElementById('processingStep').classList.remove('hidden'); document.getElementById('processingStep').classList.add('active');
 
             try {
-                // Send to Google Sheets CRM first
-                await fetch(GOOGLE_API_URL + "?action=enquiry", { method: "POST", body: JSON.stringify(formData), headers: { "Content-Type": "text/plain;charset=utf-8" } });
+                // ✅ Send data to your Zoho Catalyst API
+                const response = await fetch(BRIDGFUNDER_API_URL, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+                console.log("✅ Submission result:", result);
                 
-                // Do the math
+                // Do the calculation
                 generateMarketMatrix(getRawNumber(formData.propertyValue), getRawNumber(formData.loanAmount));
                 
-                // === PASTE THIS SPECIFIC CONVERSION EVENT HERE ===
+                // Google Ads conversion tracking
                 if (typeof gtag === 'function') {
                     gtag('event', 'conversion', {
                         'send_to': 'AW-18239109883/9Dw5CMjI8b4cEPv1ivlD',
@@ -427,21 +430,16 @@
                         'currency': 'GBP'
                     });
                 }
-                // ================================================
                 
-                // Hide Processing, Show Results
+                // Show results
                 document.getElementById('processingStep').classList.remove('active'); document.getElementById('processingStep').classList.add('hidden');
                 document.getElementById('step5').classList.add('active', 'animate__fadeIn');
                 
-                // Hide Processing, Show Results
-                document.getElementById('processingStep').classList.remove('active'); document.getElementById('processingStep').classList.add('hidden');
-                document.getElementById('step5').classList.add('active', 'animate__fadeIn');
-                
-                // Visual cleanup
                 document.getElementById('progressBar').style.width = '100%'; document.getElementById('progressBar').style.backgroundColor = '#4ade80';
                 document.getElementById('formHeader').style.display = 'none'; document.getElementById('footerLegal').style.display = 'none';
                 
             } catch (e) {
+                console.error("❌ Submission error:", e);
                 document.getElementById('processingStep').classList.remove('active'); document.getElementById('processingStep').classList.add('hidden');
                 document.getElementById('step4').classList.add('active');
                 showValidationModal("There was an issue processing your request. Please check your connection and try again.");

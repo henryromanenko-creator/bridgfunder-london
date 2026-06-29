@@ -1,25 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18239109883"></script>
+ <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DK79WXQM5M"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  
-  // Strict Privacy: Default everything to denied until banner is clicked
-  gtag('consent', 'default', { 
-    'ad_storage': 'denied', 
-    'analytics_storage': 'denied' 
-  });
-  
-  gtag('js', new Date());
-
-  // Main Google Ads Routing
-  gtag('config', 'AW-18239109883');
-  
-  // Fresh Google Analytics 4 Routing
-  gtag('config', 'G-77NLSS23Z5'); 
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('consent', 'default', { 'ad_storage': 'denied', 'analytics_storage': 'denied' });
+ gtag('js', new Date());
+ gtag('config', 'G-DK79WXQM5M');
 </script>
+    
+
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -266,7 +258,7 @@
         // -------------------------------------------------------------
         // LIVE GOOGLE APPS SCRIPT ENDPOINT
         // -------------------------------------------------------------
-        const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbys0-RjXnjfZ_XAo0RuBb7ZugqrHe00C13JCClPyVAZVe4tIjePerstmJ3pFiDUwVgtYQ/exec";
+        const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxfF__UlALsZG0FbvLltPRrQyhfk5tcOO34O3kLe4wSBf91y5hFcze0SZCg2cFS-we8/exec";
 
         function navTo(page) {
             let target = page.toLowerCase() === 'index' ? 'index.html' : page.toLowerCase() + '.html';
@@ -429,11 +421,7 @@
                 
                 // Google Ads conversion tracking
                 if (typeof gtag === 'function') {
-                    gtag('event', 'conversion', {
-                        'send_to': 'AW-18239109883/9Dw5CMjI8b4cEPv1ivlD',
-                        'value': 1.0,
-                        'currency': 'GBP'
-                    });
+                    // Google Ads tracking removed
                 }
                 
                 // Show results

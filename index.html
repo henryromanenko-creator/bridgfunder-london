@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Pristine GA4 Integration -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DK79WXQM5M"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -117,6 +118,7 @@
         </div>
     </section>
 
+    <!-- === PROMOTIONAL VIDEO SECTION === -->
     <section class="py-16 md:py-24 bg-white border-b border-gray-200 px-4 md:px-6 relative">
         <div class="max-w-5xl mx-auto text-center animate__animated animate__fadeInUp">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-dark/5 border border-brand-dark/10 text-brand-dark text-xs font-bold tracking-widest uppercase mb-4">
@@ -138,6 +140,47 @@
             </div>
         </div>
     </section>
+    <!-- === END PROMOTIONAL VIDEO SECTION === -->
+
+    <section id="sectors" class="py-20 md:py-24 px-4 md:px-6 max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2 class="text-3xl font-bold text-brand-dark mb-4 tracking-tight">Who We Partner With</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+            <div class="glass-card p-8 flex flex-col group cursor-pointer" onclick="navTo('Development')">
+                <div class="h-48 w-full rounded-xl mb-6 relative overflow-hidden border border-gray-100 bg-gray-100">
+                     <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-[1.04]" style="background-image: url('https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Index_Property%20Developers.png');"></div>
+                </div>
+                <h3 class="text-brand-dark font-bold text-2xl mb-3">Property Developers</h3>
+                <p class="text-base text-brand-gray leading-relaxed mb-6 flex-grow">Ground-up construction funding, capital restructuring, and bridging main lender stage-payment delays so your build stays on track.</p>
+                <div class="text-base font-bold text-brand-dark flex items-center gap-2 group-hover:text-brand-cyan transition-colors mt-auto">Learn More <i data-lucide="arrow-right" class="w-5 h-5"></i></div>
+            </div>
+            <div class="glass-card p-8 flex flex-col group cursor-pointer" onclick="navTo('BTL')">
+                <div class="h-48 w-full rounded-xl mb-6 relative overflow-hidden border border-gray-100 bg-gray-100">
+                     <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-[1.04]" style="background-image: url('https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Index_Professional%20Landlords.png');"></div>
+                </div>
+                <h3 class="text-brand-dark font-bold text-2xl mb-3">Professional Landlords</h3>
+                <p class="text-base text-brand-gray leading-relaxed mb-6 flex-grow">From complex HMO optimization to rapid equity release and auction finance execution. We structure loans to safely maximize your portfolio yield.</p>
+                <div class="text-base font-bold text-brand-dark flex items-center gap-2 group-hover:text-brand-cyan transition-colors mt-auto">Learn More <i data-lucide="arrow-right" class="w-5 h-5"></i></div>
+            </div>
+            <div class="glass-card p-8 flex flex-col group cursor-pointer" onclick="navTo('AssetFinance')">
+                <div class="h-48 w-full rounded-xl mb-6 relative overflow-hidden border border-gray-100 bg-gray-100">
+                     <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-[1.04]" style="background-image: url('https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Index_SME%20Business%20Owners.png');"></div>
+                </div>
+                <h3 class="text-brand-dark font-bold text-2xl mb-3">SME Business Owners</h3>
+                <p class="text-base text-brand-gray leading-relaxed mb-6 flex-grow">Bridge short-term operational cash flow mismatches, clear 60-day invoice gaps, or fund new equipment without diluting your business equity.</p>
+                <div class="text-base font-bold text-brand-dark flex items-center gap-2 group-hover:text-brand-cyan transition-colors mt-auto">Learn More <i data-lucide="arrow-right" class="w-5 h-5"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white text-brand-gray py-16 border-t border-gray-200 mt-auto">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-sm text-brand-gray mb-8">BridgFunder London is an Appointed Representative of White Rose Finance Group Ltd (FRN: 630772).</p>
+            <p class="text-xs text-gray-500 uppercase tracking-widest">© 2026 BridgFunder London.</p>
+        </div>
+    </footer>
+
     <script>
         lucide.createIcons();
         function navTo(page) {
@@ -147,7 +190,24 @@
         function toggleMobileMenu() {
             document.getElementById('mobileMenu').classList.toggle('hidden');
         }
-        // ... rest of scripts ...
+
+        // Carousel Logic
+        const imageUrls = [
+            'https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Index_Carousel_3.png',
+            'https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Index_Carousel_2.png',
+            'https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Index_Carousel_1.png'
+        ];
+        let currentSlide = 1;
+        imageUrls.forEach((url, index) => {
+            const slide = document.getElementById('carousel-' + (index + 1));
+            if (slide) slide.style.backgroundImage = `url('${url}')`;
+        });
+        document.getElementById('carousel-1').classList.add('active');
+        setInterval(() => {
+            document.getElementById('carousel-' + currentSlide).classList.remove('active');
+            currentSlide = currentSlide >= 3 ? 1 : currentSlide + 1;
+            document.getElementById('carousel-' + currentSlide).classList.add('active');
+        }, 5500);
     </script>
 </body>
 </html>

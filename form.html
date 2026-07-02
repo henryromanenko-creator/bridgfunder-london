@@ -11,8 +11,6 @@
  gtag('config', 'G-DK79WXQM5M');
 </script>
     
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BridgFunder London | Funding Assessment</title>
@@ -46,14 +44,12 @@
     </style>
 </head>
 <body class="pb-8">
-
     <div class="fixed inset-0 z-[-2] bg-navy">
         <div id="form-carousel-1" class="carousel-slide"></div>
         <div id="form-carousel-2" class="carousel-slide"></div>
         <div id="form-carousel-3" class="carousel-slide"></div>
     </div>
     <div class="fixed inset-0 z-[-1] bg-navy/60 backdrop-blur-sm pointer-events-none"></div>
-
     <nav class="flex justify-between items-center px-4 lg:px-10 py-4 bg-white/95 backdrop-blur-md sticky top-0 z-[100] border-b border-gray-200 shadow-sm w-full relative">
         <div onclick="navTo('Index')" class="flex items-center gap-3 group cursor-pointer">
             <img src="https://raw.githubusercontent.com/henryromanenko-creator/site-assets/main/Logo%20(1).png" alt="BridgFunder" class="h-8 md:h-9 w-auto object-contain" referrerpolicy="no-referrer">
@@ -66,18 +62,15 @@
             <button onclick="navTo('Index')" class="text-sm font-bold text-gray-600 hover:text-navy px-4 transition-colors">Exit Application</button>
         </div>
     </nav>
-
     <div class="glass-panel rounded-2xl w-full max-w-2xl p-6 md:p-8 relative overflow-hidden mt-8 animate__animated animate__fadeInUp mx-4">
         
         <div class="text-center mb-6" id="formHeader">
             <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight mb-2">Indicative Funding Calculator</h2>
             <p class="text-xs md:text-sm text-gray-300 leading-relaxed max-w-lg mx-auto">Input your parameters to view real-time market averages and initial structuring estimates.</p>
         </div>
-
         <div class="w-full bg-black/40 rounded-full h-2 mb-8 overflow-hidden shadow-inner" id="progressContainer">
             <div id="progressBar" class="bg-gold h-2 rounded-full transition-all duration-500" style="width: 25%"></div>
         </div>
-
         <form id="appraisalForm" onsubmit="return false;">
             
             <div id="step1" class="step-content active animate__animated animate__fadeIn">
@@ -97,7 +90,6 @@
                     </div>
                 </div>
             </div>
-
             <div id="step2" class="step-content animate__animated">
                 <h3 class="text-lg font-semibold text-white mb-6">Funding requirement:</h3>
                 <div class="space-y-3">
@@ -120,7 +112,6 @@
                 </div>
                 <div class="mt-6"><button type="button" onclick="goToStep(1)" class="text-gray-400 hover:text-white">Back</button></div>
             </div>
-
             <div id="step3" class="step-content animate__animated">
                 <h3 class="text-lg font-semibold text-white mb-6">Project Overview</h3>
                 <div class="space-y-5">
@@ -144,7 +135,6 @@
                     </button>
                 </div>
             </div>
-
             <div id="step4" class="step-content animate__animated">
                 <h3 class="text-lg font-semibold text-white mb-2">Where should we send your structuring?</h3>
                 <p class="text-sm text-gray-400 mb-6">Provide your details to unlock your market estimates and have a senior underwriter review your scenario.</p>
@@ -165,19 +155,16 @@
                     </button>
                 </div>
             </div>
-
             <div id="processingStep" class="step-content animate__animated text-center py-16 hidden">
                 <i data-lucide="loader-2" class="w-16 h-16 text-brand-cyan mx-auto mb-6 animate-spin"></i>
                 <h3 class="text-xl font-bold text-white mb-2">Analyzing Market Parameters</h3>
                 <p class="text-gray-400 text-sm">Securing details and computing estimated fees...</p>
             </div>
-
             <div id="step5" class="step-content animate__animated">
                 <div class="text-center mb-6">
                     <h3 class="text-2xl font-bold text-gold mb-1">Indicative Structuring</h3>
                     <p id="resProductType" class="text-brand-cyan font-semibold uppercase tracking-wider text-xs"></p>
                 </div>
-
                 <div class="grid grid-cols-2 gap-3 mb-4">
                     <div class="result-card">
                         <p class="text-[10px] text-gray-400 uppercase tracking-wider mb-1">Req. Leverage</p>
@@ -188,13 +175,11 @@
                         <p id="resFee" class="text-lg font-bold text-white mt-1"></p>
                     </div>
                 </div>
-
                 <div class="result-card w-full mb-4 bg-black/20 border-brand-cyan/30">
                     <p class="text-[10px] text-gray-400 uppercase tracking-wider mb-1">Indicative Market Rate</p>
                     <p id="resRate" class="text-xl font-bold text-brand-cyan"></p>
                     <p id="resTermNote" class="text-xs text-gray-500 mt-1"></p>
                 </div>
-
                 <div class="bg-black/30 border border-white/10 rounded-xl p-4 mb-6">
                     <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3 border-b border-white/10 pb-2">Estimated Cash Breakdown</h4>
                     <div class="flex justify-between items-center mb-2">
@@ -214,13 +199,11 @@
                         <span id="netValue" class="text-lg font-bold text-gold"></span>
                     </div>
                 </div>
-
                 <div class="bg-red-500/10 border border-red-500/30 p-4 rounded-xl mb-6">
                     <p class="text-[9px] md:text-[10px] text-gray-300 leading-relaxed text-justify font-medium">
                         <strong class="text-white">ENQUIRY RECEIVED:</strong> Your details have been securely logged and a senior underwriter will contact you shortly. The results generated above are for illustrative purposes only, are based on current market averages, and do not constitute a formal offer of credit or financial advice. Figures exclude valuation and legal fees.
                     </p>
                 </div>
-
                 <div class="mt-4 flex justify-center items-center">
                     <button type="button" onclick="navTo('Index')" class="px-8 py-3.5 bg-white/10 text-white font-bold rounded-lg border border-white/20 hover:bg-white/20 transition-colors">
                         Return Home
@@ -229,13 +212,11 @@
             </div>
         </form>
     </div>
-
     <div class="w-full max-w-2xl mt-6 text-center px-4 relative z-10" id="footerLegal">
         <p class="text-[9px] md:text-[10px] text-gray-400 font-mono leading-relaxed uppercase tracking-widest drop-shadow-md">
             BridgFunder London is an Appointed Representative of White Rose Finance Group Ltd, which is authorised and regulated by the Financial Conduct Authority (FRN: 630772).
         </p>
     </div>
-
     <div id="validationModal" class="fixed inset-0 z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
         <div class="absolute inset-0 bg-navy/80 backdrop-blur-sm" onclick="closeValidationModal()"></div>
         <div class="glass-panel p-8 rounded-2xl max-w-sm w-full mx-4 relative z-10 text-center transform scale-95 transition-transform duration-300 border-t-4 border-t-gold" id="validationModalContent">
@@ -249,7 +230,6 @@
             </button>
         </div>
     </div>
-
     <script>
         lucide.createIcons();
         
@@ -258,13 +238,11 @@
         // -------------------------------------------------------------
         // LIVE GOOGLE APPS SCRIPT ENDPOINT
         // -------------------------------------------------------------
-        const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxfF__UlALsZG0FbvLltPRrQyhfk5tcOO34O3kLe4wSBf91y5hFcze0SZCg2cFS-we8/exec";
-
+        const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbypBM2c6ihRaBymqPrQX0wf7-AApupq_IW_sEuRvu6F8DGoR41p0MJgXT4hXjUa9Zm8uQ/exec";
         function navTo(page) {
             let target = page.toLowerCase() === 'index' ? 'index.html' : page.toLowerCase() + '.html';
             window.location.href = target;
         }
-
         const formatMoney = (num) => '£' + num.toLocaleString('en-GB', {maximumFractionDigits: 0});
         
         function formatCurrency(input) {
@@ -272,7 +250,6 @@
             if(val) input.value = Number(val).toLocaleString('en-GB');
         }
         function getRawNumber(str) { return Number(str.replace(/,/g, '').replace(/\D/g, '')); }
-
         function showValidationModal(message) {
             const modal = document.getElementById('validationModal');
             const content = document.getElementById('validationModalContent');
@@ -299,7 +276,6 @@
             formData.goal = req; document.querySelectorAll('#step2 .selection-card').forEach(c => c.classList.remove('selected'));
             el.classList.add('selected'); setTimeout(() => goToStep(3), 300);
         }
-
         function validateValuesAndProceed() {
             const valStr = document.getElementById('assetValue').value;
             const loanStr = document.getElementById('loanAmount').value;
@@ -307,18 +283,15 @@
             
             const val = getRawNumber(valStr); const loan = getRawNumber(loanStr);
             if (loan > val) { showValidationModal("Requested loan amount cannot exceed the asset value."); return; }
-
             formData.propertyValue = valStr; formData.loanAmount = loanStr; formData.currentLender = document.getElementById('currentLender').value;
             goToStep(4);
         }
-
         function generateMarketMatrix(value, loan) {
             let ltv = (loan / value) * 100;
             
             let product = ""; let rateStr = ""; let feeStr = ""; let maxLtvLimit = 75;
             let isRetained = false; let termAssumed = 12; 
             let numericRate = 0; let numericFee = 0.02;
-
             if(formData.goal.includes('Development')) {
                 product = "Development / Heavy Refurbishment"; maxLtvLimit = 70; isRetained = true; termAssumed = 18;
                 rateStr = "9.50% p.a."; numericRate = 0.095;
@@ -340,10 +313,8 @@
                 rateStr = "7.25% p.a. (Var)"; numericRate = 0.0725;
                 numericFee = 0.025; feeStr = "2.50%";
             }
-
             let ltvDisplay = ltv.toFixed(1) + "%";
             if(ltv > maxLtvLimit) { ltvDisplay += " <span class='block text-[10px] text-red-400 mt-1'>(Exceeds Standard Limits)</span>"; }
-
             document.getElementById('resProductType').innerText = product;
             document.getElementById('resLTV').innerHTML = ltvDisplay;
             document.getElementById('resRate').innerText = rateStr;
@@ -380,7 +351,6 @@
                 document.getElementById('netValue').innerText = formatMoney(monthlyInt);
             }
         }
-
         async function submitEnquiryAndCalculate() {
             const name = document.getElementById('fullName').value.trim();
             const email = document.getElementById('emailAdd').value.trim();
@@ -391,13 +361,10 @@
             
             const btn = document.getElementById('finalSubmitBtn');
             btn.innerHTML = 'Calculating... <i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i>'; btn.disabled = true; lucide.createIcons();
-
             formData.fullName = name; formData.email = email; formData.phone = phone; 
             formData.additionalInfo = document.getElementById('additionalInfo').value.trim(); formData.privacyAccepted = true;
-
             document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
             document.getElementById('processingStep').classList.remove('hidden'); document.getElementById('processingStep').classList.add('active');
-
             try {
                 // Core Update: Push to Google Apps Script
                 // action parameter appended to URL for robust GS routing
@@ -412,7 +379,6 @@
                     },
                     body: JSON.stringify(formData)
                 });
-
                 const result = await response.json();
                 console.log("✅ Submission result:", result);
                 
@@ -439,13 +405,11 @@
                 btn.innerHTML = 'Calculate Structuring <i data-lucide="calculator" class="w-4 h-4"></i>'; btn.disabled = false; lucide.createIcons();
             }
         }
-
         const images = ['https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Index_Carousel_3.png','https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Index_Carousel_2.png','https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Index_Carousel_1.png'];
         let cur = 1;
         images.forEach((url, i) => { const slide = document.getElementById('form-carousel-' + (i + 1)); if(slide) slide.style.backgroundImage = `url('${url}')`; });
         document.getElementById('form-carousel-1').classList.add('active');
         setInterval(() => { document.getElementById('form-carousel-' + cur).classList.remove('active'); cur = cur >= 3 ? 1 : cur + 1; document.getElementById('form-carousel-' + cur).classList.add('active'); }, 5500);
-
         const lenders = ["Barclays Bank Plc", "Lloyds Bank Plc", "Santander UK Plc", "Aldermore Bank Plc", "Shawbrook Bank Limited", "Together Money", "Precise Mortgages Limited", "United Trust Bank Limited", "Close Brothers Limited", "Octane Capital Limited", "MT Finance Group Limited", "Masthaven Finance Limited", "Roma Finance Limited", "Hope Property Finance Ltd", "Atelier Capital Partners Limited", "Avamore Capital Limited", "Blend", "Capitalrise Estates Limited", "Fiduciam Ltd", "Lendinvest Plc", "Oaknorth Bank Plc", "Paragon Bank Plc", "Allica Bank Limited", "Hampshire Trust Bank Plc", "West One Secured Loans Limited", "Other / Not Listed"].sort();
         const input = document.getElementById('currentLender'); const list = document.getElementById('lenderList');
         

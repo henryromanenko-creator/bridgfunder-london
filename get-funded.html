@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BridgFunder London | Fast Project Funding</title>
+    <style>
+        :root {
+            --navy: #0B192C;
+            --gold: #D4AF37;
+            --white: #FFFFFF;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: var(--navy);
+            color: var(--white);
+        }
+        .background-container {
+            display: flex;
+            min-height: 100vh;
+            background: url('https://raw.githubusercontent.com/henryromanenko-creator/site-assets/main/ecbc5c74-8e88-4f68-b827-5db1d936a0c4.jpg') center center/cover no-repeat;
+        }
+        .left-spacer {
+            flex: 1; 
+        }
+        .form-section {
+            flex: 1; 
+            padding: 60px 8%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        h1 span {
+            color: var(--gold);
+            font-weight: bold;
+        }
+        p.subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 35px;
+            line-height: 1.5;
+            max-width: 90%;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 500px;
+        }
+        input, select {
+            width: 100%;
+            padding: 16px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--white);
+            font-size: 1rem;
+            border-radius: 4px;
+            box-sizing: border-box;
+            backdrop-filter: blur(4px);
+        }
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--gold);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        select option {
+            background-color: var(--navy);
+            color: var(--white);
+        }
+        button {
+            padding: 18px;
+            background-color: var(--gold);
+            color: var(--navy);
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #F3C623;
+            transform: translateY(-2px);
+        }
+        .footer-links {
+            margin-top: 40px;
+            font-size: 0.95rem;
+            color: #A0AAB2;
+        }
+        .footer-links a {
+            color: var(--gold);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+        .footer-links a:hover {
+            border-color: var(--gold);
+        }
+        .regulatory {
+            margin-top: 30px;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.4);
+            line-height: 1.5;
+            max-width: 500px;
+        }
+        @media (max-width: 900px) {
+            .background-container { 
+                flex-direction: column; 
+                background-position: left center; 
+            }
+            .left-spacer { display: none; }
+            .form-section { 
+                padding: 40px 20px; 
+                background: rgba(11, 25, 44, 0.95); 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <div class="left-spacer"></div>
+        <div class="form-section">
+            <h1>Fast Funding. <span>No Fluff.</span></h1>
+            <p class="subtitle">Skip the six-month bank wait. Give me the basic details below, and let's see how quickly we can get your project moving.</p>
+            
+            <form id="bridgfunder-form" method="POST" action="https://script.google.com/macros/s/AKfycbzOOhQTOPod5LVNZSTZnDFmhXvL24wCHJRTQe5P7C_Q33LttFm9VAL5Tvc3vcaonvfcSQ/exec">
+                <input type="text" name="name" placeholder="Your Full Name" required>
+                <input type="email" name="email" placeholder="Your Email Address" required>
+                <input type="tel" name="phone" placeholder="Your Phone Number" required>
+                
+                <input type="text" name="assetValue" placeholder="What is the property/asset worth? (£)" required>
+                <input type="text" name="capitalNeeded" placeholder="How much funding do you need? (£)" required>
+                
+                <select name="financeType" required>
+                    <option value="" disabled selected>What type of finance are you looking for?</option>
+                    <option value="Property Bridging">Property Bridging</option>
+                    <option value="Development Funding">Development Funding</option>
+                    <option value="Buy to Let / HMO">Buy-To-Let / HMO</option>
+                    <option value="Commercial Mortgage">Commercial Mortgage</option>
+                    <option value="Business Cashflow">Business Cashflow Loan</option>
+                    <option value="Invoice or Asset Finance">Invoice or Asset Finance</option>
+                </select>
+
+                <input type="text" name="exitStrategy" placeholder="How will you pay it back? (e.g., Sale, Refinance)" required>
+                
+                <button type="submit" id="submit-btn">Check My Funding Options</button>
+            </form>
+
+            <div class="footer-links">
+                Return to the <a href="https://bridgfunderlondon.co.uk">BridgFunder London homepage</a>.
+            </div>
+
+            <div class="regulatory">
+                BridgFunder London is a trading name of Mr Henrijs Romanenko. Appointed Representative of White Rose Finance Group Limited (FRN: 630772), directly authorized and regulated by the Financial Conduct Authority (FCA). Firm Reference Number: 1051038. We are a credit broker, not a lender.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('bridgfunder-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var btn = document.getElementById('submit-btn');
+            btn.innerText = 'Sending to Henry...';
+            btn.style.backgroundColor = 'transparent';
+            btn.style.border = '1px solid #D4AF37';
+            btn.style.color = '#D4AF37';
+            btn.disabled = true;
+
+            var formData = new FormData(this);
+
+            fetch(this.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                btn.innerText = 'Details Sent!';
+                btn.style.backgroundColor = '#28a745';
+                btn.style.color = '#FFFFFF';
+                btn.style.border = 'none';
+                alert("Thanks! I've received your details. Check your email shortly, and we'll get things moving.");
+                document.getElementById('bridgfunder-form').reset();
+            })
+            .catch(error => {
+                btn.innerText = 'Error - Please Try Again';
+                btn.style.backgroundColor = '#dc3545';
+                btn.style.color = '#FFFFFF';
+                btn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>

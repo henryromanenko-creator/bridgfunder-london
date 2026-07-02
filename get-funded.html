@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DK79WXQM5M"></script>
+    <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('consent', 'default', { 'ad_storage': 'denied', 'analytics_storage': 'denied' });
+     gtag('js', new Date());
+     gtag('config', 'G-DK79WXQM5M');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BridgFunder London | Fast Project Funding</title>
@@ -138,8 +147,7 @@
             <h1>Fast Funding. <span>No Fluff.</span></h1>
             <p class="subtitle">Skip the six-month bank wait. Give me the basic details below, and let's see how quickly we can get your project moving.</p>
             
-            <!-- MAKE SURE YOUR LIVE GOOGLE APPS SCRIPT URL IS BELOW -->
-            <form id="bridgfunder-form" method="POST" action="https://script.google.com/macros/s/AKfycbzcruzE6EkqlEGiXY9A7eksEAa97jJWRvwm0LF8hG_3TvecX9HxGwd3txChVhgrsuG-/exec">
+            <form id="bridgfunder-form" method="POST" action="https://script.google.com/macros/s/AKfycbwkJfzvMubhIMdOVfBqrBNKxkhqdk7V60tcM3fIDQC9bDEpchxABIO74PhXTzoHENFQDw/exec">
                 <input type="text" name="name" placeholder="Your Full Name" required>
                 <input type="email" name="email" placeholder="Your Email Address" required>
                 <input type="tel" name="phone" placeholder="Your Phone Number" required>
@@ -190,6 +198,11 @@
             })
             .then(response => response.text())
             .then(data => {
+                // Backend error handling
+                if(data.includes("Error")) {
+                    console.error("Backend Error:", data);
+                    throw new Error("Backend script failed.");
+                }
                 btn.innerText = 'Details Sent!';
                 btn.style.backgroundColor = '#28a745';
                 btn.style.color = '#FFFFFF';

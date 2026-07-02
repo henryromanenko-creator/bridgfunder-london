@@ -27,7 +27,8 @@
         }
         .form-section {
             flex: 1; 
-            padding: 60px 8%;
+            /* INCREASED LEFT PADDING TO PUSH FORM AWAY FROM THE IMAGE EDGE */
+            padding: 60px 8% 60px 14%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -137,7 +138,8 @@
             <h1>Fast Funding. <span>No Fluff.</span></h1>
             <p class="subtitle">Skip the six-month bank wait. Give me the basic details below, and let's see how quickly we can get your project moving.</p>
             
-            <form id="bridgfunder-form" method="POST" action="https://script.google.com/macros/s/AKfycbzOOhQTOPod5LVNZSTZnDFmhXvL24wCHJRTQe5P7C_Q33LttFm9VAL5Tvc3vcaonvfcSQ/exec">
+            <!-- MAKE SURE YOUR LIVE GOOGLE APPS SCRIPT URL IS BELOW -->
+            <form id="bridgfunder-form" method="POST" action="https://script.google.com/macros/s/AKfycbzcruzE6EkqlEGiXY9A7eksEAa97jJWRvwm0LF8hG_3TvecX9HxGwd3txChVhgrsuG-/exec">
                 <input type="text" name="name" placeholder="Your Full Name" required>
                 <input type="email" name="email" placeholder="Your Email Address" required>
                 <input type="tel" name="phone" placeholder="Your Phone Number" required>

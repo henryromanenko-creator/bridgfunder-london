@@ -238,7 +238,9 @@
         // LIVE GOOGLE APPS SCRIPT ENDPOINT
         // ---> THIS LINK HAS BEEN UPDATED <---
         // -------------------------------------------------------------
+        // Primary: BridgFunder Portal engine (Juno) | Fallback: legacy mailer (kept only as a safety net)
         const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxcJsXUJ9SS_yj-D8jn9GtbRT54C-iHMLV5aPwDKVzishhfVQezwGby-Qtw7qotvk7JNA/exec";
+        const JUNO_ENQUIRY_URL = "https://api.getjuno.com/api/v1/db/exposures/Af7WU9dEBEfrn0tob8OWX_KWWDJyyHv8RdhjLsgXUUeC0KEQtMTp9Sqkg5AmGbSKVg";
         
         function navTo(page) {
             let target = page.toLowerCase() === 'index' ? 'index.html' : page.toLowerCase() + '.html';
@@ -369,19 +371,34 @@
             try {
                 // Core Update: Push to Google Apps Script
                 // action parameter appended to URL for robust GS routing
-                const endpoint = GOOGLE_APPS_SCRIPT_URL + "?action=enquiry";
-                
-                const response = await fetch(endpoint, {
-                    method: "POST",
-                    // Using text/plain prevents the browser from sending an OPTIONS preflight request
-                    // which often fails on Google's 302 redirect sequence.
-                    headers: {
-                        "Content-Type": "text/plain;charset=utf-8"
-                    },
-                    body: JSON.stringify(formData)
-                });
-                const result = await response.json();
-                console.log("✅ Submission result:", result);
+                // Primary: send the enquiry straight into the BridgFunder portal engine.
+                const now = new Date().toISOString().slice(0,16).replace("T"," ");
+                const payload = {
+                    name: formData.fullName || "", email: formData.email || "", phone: formData.phone || "",
+                    category: formData.category || "", goal: formData.goal || "",
+                    property_value: formData.propertyValue || "", loan_amount: formData.loanAmount || "",
+                    current_lender: formData.currentLender || "", additional_info: formData.additionalInfo || "",
+                    source: "website", status: "new", created_at: now
+                };
+                let result = null;
+                try {
+                    const r1 = await fetch(JUNO_ENQUIRY_URL, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(payload)
+                    });
+                    result = await r1.json();
+                    console.log("✅ Engine submission:", result);
+                } catch (e1) {
+                    // Safety net only: legacy mailer, in case the engine is briefly unreachable.
+                    console.warn("Engine unreachable — using legacy mailer", e1);
+                    const r2 = await fetch(GOOGLE_APPS_SCRIPT_URL + "?action=enquiry", {
+                        method: "POST",
+                        headers: { "Content-Type": "text/plain;charset=utf-8" },
+                        body: JSON.stringify(formData)
+                    });
+                    result = await r2.json();
+                }
                 
                 // Do the calculation
                 generateMarketMatrix(getRawNumber(formData.propertyValue), getRawNumber(formData.loanAmount));

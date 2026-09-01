@@ -383,7 +383,7 @@
 
         // NEWSLETTER API LOGIC
         // ---> THIS LINK HAS BEEN UPDATED <---
-        const GOOGLE_API_URL = "https://script.google.com/macros/s/AKfycbxcJsXUJ9SS_yj-D8jn9GtbRT54C-iHMLV5aPwDKVzishhfVQezwGby-Qtw7qotvk7JNA/exec"; 
+        const JUNO_SUBSCRIBER_URL = "https://api.getjuno.com/api/v1/db/exposures/AZQjCUtzB0ArogC-l6o36yjC6kpAK6M1FhfWrK_w5KVFGuZviSOxUEJz9SCDpd9iwA";
 
         function submitNewsletter() {
             const email = document.getElementById('newsletterEmail').value.trim();
@@ -394,13 +394,14 @@
             btn.disabled = true;
             lucide.createIcons();
 
-            fetch(GOOGLE_API_URL + "?action=subscribe", {
+            fetch(JUNO_SUBSCRIBER_URL, {
                 method: "POST",
-                body: JSON.stringify({ email: email }),
-                headers: { "Content-Type": "text/plain;charset=utf-8" }
+                body: JSON.stringify({ name: email, email: email, source: "homepage newsletter", status: "new", created_at: new Date().toISOString().slice(0,16).replace("T"," ") }),
+                headers: { "Content-Type": "application/json" }
             })
             .then(response => response.json())
             .then(data => {
+                if (data.message !== "ok") throw new Error("Server error");
                 document.getElementById('subscribeForm').classList.add('hidden');
                 document.getElementById('newsletterSuccess').classList.remove('hidden');
             })

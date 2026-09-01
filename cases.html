@@ -342,16 +342,16 @@
             btn.disabled = true;
             lucide.createIcons();
 
-            const GOOGLE_API_URL = "https://script.google.com/macros/s/AKfycbxfF__UlALsZG0FbvLltPRrQyhfk5tcOO34O3kLe4wSBf91y5hFcze0SZCg2cFS-we8/exec"; 
+            const JUNO_SUBSCRIBER_URL = "https://api.getjuno.com/api/v1/db/exposures/AZQjCUtzB0ArogC-l6o36yjC6kpAK6M1FhfWrK_w5KVFGuZviSOxUEJz9SCDpd9iwA";
 
-            fetch(GOOGLE_API_URL + "?action=subscribe", {
+            fetch(JUNO_SUBSCRIBER_URL, {
                 method: "POST",
-                body: JSON.stringify({ email: email }),
-                headers: { "Content-Type": "text/plain;charset=utf-8" }
+                body: JSON.stringify({ name: email, email: email, source: "site newsletter", status: "new", created_at: new Date().toISOString().slice(0,16).replace("T"," ") }),
+                headers: { "Content-Type": "application/json" }
             })
             .then(response => response.json())
             .then(data => {
-                if(data.status === "success") {
+                if(data.message === "ok") {
                     document.getElementById('subscribeForm').classList.add('hidden');
                     document.getElementById('newsletterSuccess').classList.remove('hidden');
                 } else {

@@ -25,7 +25,7 @@
         tailwind.config = { theme: { extend: { colors: { 'brand-bg': '#F4F7F8', 'brand-dark': '#0F172A', 'brand-gray': '#475569', 'brand-cyan': '#00E5C8', 'brand-gold': '#FFD700' }, fontFamily: { sans: ['"Public Sans"', 'sans-serif'] } } } }
     </script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Refinance.png">
+    <link rel="preload" as="image" href="/assets/refinance.jpg">
     <style>
         body { background-color: #F4F7F8; color: #0F172A; font-family: 'Public Sans', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
         .glass-card { background: #FFFFFF; border: 1px solid #F1F5F9; border-radius: 16px; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
@@ -39,13 +39,22 @@
         @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
         .nav-link { cursor: pointer; transition: color 0.2s; }
     </style>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="Bridge refinance — move from expensive bridging to long-term funding without delay. Free assessment — BridgFunder London.">
+<meta property="og:title" content="Bridge Refinance | BridgFunder London">
+<meta property="og:description" content="Bridge refinance — move from expensive bridging to long-term funding without delay. Free assessment — BridgFunder London.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bridgfunderlondon.co.uk/bridgerefinance.html">
+<meta property="og:image" content="https://bridgfunderlondon.co.uk/assets/og-card.jpg">
+<meta property="og:site_name" content="BridgFunder London">
+<link rel="canonical" href="https://bridgfunderlondon.co.uk/bridgerefinance.html">
 </head>
 <body class="antialiased min-h-screen flex flex-col">
 
     <!-- SYNCED NAVIGATION -->
     <nav class="flex justify-between items-center px-4 lg:px-10 py-4 bg-white/95 backdrop-blur-md sticky top-0 z-[100] border-b border-gray-200 shadow-sm w-full relative">
         <div onclick="navTo('Index')" class="flex items-center gap-3 group cursor-pointer">
-            <img src="https://raw.githubusercontent.com/henryromanenko-creator/site-assets/main/Logo%20(1).png" alt="BridgFunder" class="h-8 md:h-9 w-auto object-contain" referrerpolicy="no-referrer">
+            <img src="/assets/logo.png" alt="BridgFunder" class="h-8 md:h-9 w-auto object-contain" referrerpolicy="no-referrer">
             <div class="flex flex-col border-l-2 border-gray-200 pl-3">
                 <span class="font-bold text-[#0F172A] text-lg md:text-xl leading-none tracking-tight">BridgFunder</span>
                 <span class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-gray-500 font-bold mt-1">London</span>
@@ -206,7 +215,7 @@
             
             <div class="lg:col-span-1">
                 <div class="flex items-center gap-3 mb-6">
-                    <img src="https://raw.githubusercontent.com/henryromanenko-creator/site-assets/main/Logo%20(1).png" alt="BridgFunder London" class="h-8 w-auto object-contain" referrerpolicy="no-referrer">
+                    <img src="/assets/logo.png" alt="BridgFunder London" class="h-8 w-auto object-contain" referrerpolicy="no-referrer">
                     <span class="font-bold text-brand-dark text-xl tracking-tight">BridgFunder</span>
                 </div>
                 <p class="text-sm text-brand-gray leading-relaxed">Specialist commercial finance bridging the gap for developers, landlords, and SMEs.</p>
@@ -298,7 +307,7 @@
 
         // Using your new specific image
         const imageUrls = [
-            'https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Refinance.png'
+            '/assets/refinance.jpg'
         ];
         
         let carouselStarted = false;

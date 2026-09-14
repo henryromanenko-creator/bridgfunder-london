@@ -52,13 +52,22 @@
         @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
         .nav-link { cursor: pointer; transition: color 0.2s; }
     </style>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="description" content="Real case studies and the execution record behind BridgFunder London — commercial and property finance that actually gets done.">
+<meta property="og:title" content="Case Studies & Execution Record | BridgFunder London">
+<meta property="og:description" content="Real case studies and the execution record behind BridgFunder London — commercial and property finance that actually gets done.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bridgfunderlondon.co.uk/cases.html">
+<meta property="og:image" content="https://bridgfunderlondon.co.uk/assets/og-card.jpg">
+<meta property="og:site_name" content="BridgFunder London">
+<link rel="canonical" href="https://bridgfunderlondon.co.uk/cases.html">
 </head>
 <body class="antialiased min-h-screen flex flex-col">
 
     <!-- SYNCED NAV BAR WITH ACTIVE PAGE HIGHLIGHT -->
     <nav class="flex justify-between items-center px-4 lg:px-10 py-4 bg-white/95 backdrop-blur-md sticky top-0 z-[100] border-b border-gray-200 shadow-sm w-full relative">
         <div onclick="navTo('Index')" class="flex items-center gap-3 group cursor-pointer">
-            <img src="https://raw.githubusercontent.com/henryromanenko-creator/site-assets/main/Logo%20(1).png" alt="BridgFunder" class="h-8 md:h-9 w-auto object-contain" referrerpolicy="no-referrer">
+            <img src="/assets/logo.png" alt="BridgFunder" class="h-8 md:h-9 w-auto object-contain" referrerpolicy="no-referrer">
             <div class="flex flex-col border-l-2 border-gray-200 pl-3">
                 <span class="font-bold text-[#0F172A] text-lg md:text-xl leading-none tracking-tight">BridgFunder</span>
                 <span class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-gray-500 font-bold mt-1">London</span>
@@ -115,7 +124,7 @@
     </div>
 
     <section class="relative pt-24 pb-20 px-6 bg-brand-dark overflow-hidden border-b border-brand-gold/20">
-        <div class="absolute inset-0 z-0 opacity-20 bg-cover bg-center" style="background-image: url('https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/About.png');"></div>
+        <div class="absolute inset-0 z-0 opacity-20 bg-cover bg-center" style="background-image: url('/assets/about.jpg');"></div>
         <div class="absolute inset-0 z-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent"></div>
         
         <div class="max-w-4xl mx-auto relative z-10 text-center animate__animated animate__fadeInUp">
@@ -136,7 +145,7 @@
             
             <div class="glass-card flex flex-col">
                 <div class="h-64 overflow-hidden relative">
-                    <img src="https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Case%20Study%20_%20South%20London%20Conversion.png" alt="South London Conversion" class="case-image w-full h-full object-cover" referrerpolicy="no-referrer">
+                    <img src="/assets/case-study-_-south-london-conversion.jpg" alt="South London Conversion" class="case-image w-full h-full object-cover" referrerpolicy="no-referrer">
                     <div class="absolute top-4 left-4">
                         <span class="tag bg-brand-dark/80 backdrop-blur-md text-brand-cyan border border-brand-cyan/30">Development Finance</span>
                     </div>
@@ -161,7 +170,7 @@
 
             <div class="glass-card flex flex-col">
                 <div class="h-64 overflow-hidden relative">
-                    <img src="https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Case%20Study%20_%20Residential%20Portfolio.png" alt="Residential Portfolio Add" class="case-image w-full h-full object-cover" referrerpolicy="no-referrer">
+                    <img src="/assets/case-study-_-residential-portfolio.jpg" alt="Residential Portfolio Add" class="case-image w-full h-full object-cover" referrerpolicy="no-referrer">
                     <div class="absolute top-4 left-4">
                         <span class="tag bg-brand-dark/80 backdrop-blur-md text-brand-gold border border-brand-gold/30">Auction Bridging</span>
                     </div>
@@ -186,7 +195,7 @@
 
             <div class="glass-card flex flex-col">
                 <div class="h-64 overflow-hidden relative">
-                    <img src="https://cdn.jsdelivr.net/gh/henryromanenko-creator/site-assets/Case%20Study%20_%20Logistics%20Fleet%20Expansion.jpeg" alt="Logistics Fleet Expansion" class="case-image w-full h-full object-cover" referrerpolicy="no-referrer">
+                    <img src="/assets/case-study-_-logistics-fleet-expansion.jpg" alt="Logistics Fleet Expansion" class="case-image w-full h-full object-cover" referrerpolicy="no-referrer">
                     <div class="absolute top-4 left-4">
                         <span class="tag bg-brand-dark/80 backdrop-blur-md text-white border border-white/20">Asset Finance</span>
                     </div>
@@ -242,7 +251,7 @@
             
             <div class="lg:col-span-1">
                 <div class="flex items-center gap-3 mb-6">
-                    <img src="https://raw.githubusercontent.com/henryromanenko-creator/site-assets/main/Logo%20(1).png" alt="BridgFunder London" class="h-8 w-auto object-contain" referrerpolicy="no-referrer">
+                    <img src="/assets/logo.png" alt="BridgFunder London" class="h-8 w-auto object-contain" referrerpolicy="no-referrer">
                     <span class="font-bold text-brand-dark text-xl tracking-tight">BridgFunder</span>
                 </div>
                 <p class="text-sm text-brand-gray leading-relaxed">Specialist commercial finance bridging the gap for developers, landlords, and SMEs.</p>
@@ -342,7 +351,7 @@
             btn.disabled = true;
             lucide.createIcons();
 
-            const JUNO_SUBSCRIBER_URL = "https://api.getjuno.com/api/v1/db/exposures/AZQjCUtzB0ArogC-l6o36yjC6kpAK6M1FhfWrK_w5KVFGuZviSOxUEJz9SCDpd9iwA";
+            const JUNO_SUBSCRIBER_URL = "https://api.bridgfunderlondon.co.uk/api/subscribe";
 
             fetch(JUNO_SUBSCRIBER_URL, {
                 method: "POST",

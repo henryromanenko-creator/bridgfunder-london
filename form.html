@@ -247,9 +247,9 @@
         // LIVE GOOGLE APPS SCRIPT ENDPOINT
         // ---> THIS LINK HAS BEEN UPDATED <---
         // -------------------------------------------------------------
-        // Primary: BridgFunder Portal engine (Juno) | Fallback: legacy mailer (kept only as a safety net)
+        // Primary: BridgFunder Portal engine  | Fallback: legacy mailer (kept only as a safety net)
         const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxcJsXUJ9SS_yj-D8jn9GtbRT54C-iHMLV5aPwDKVzishhfVQezwGby-Qtw7qotvk7JNA/exec";
-        const JUNO_ENQUIRY_URL = "https://api.bridgfunderlondon.co.uk/api/enquiry";
+        const ENQUIRY_URL = "https://api.bridgfunderlondon.co.uk/api/enquiry";
         
         function navTo(page) {
             let target = page.toLowerCase() === 'index' ? 'index.html' : page.toLowerCase() + '.html';
@@ -391,7 +391,7 @@
                 };
                 let result = null;
                 try {
-                    const r1 = await fetch(JUNO_ENQUIRY_URL, {
+                    const r1 = await fetch(ENQUIRY_URL, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(payload)

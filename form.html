@@ -290,9 +290,14 @@
                     <input type="email" id="emailAdd" placeholder="Email Address" class="cyber-input">
                     <input type="tel" id="phoneNum" placeholder="Phone Number" class="cyber-input">
                     <textarea id="additionalInfo" rows="2" placeholder="Additional Details (Optional)" class="cyber-input resize-none"></textarea>
-                    <div class="flex items-start gap-3 p-4 bg-black/20 rounded-lg border border-white/5">
-                        <input type="checkbox" id="privacyConsent" class="mt-1 accent-gold w-5 h-5 cursor-pointer">
-                        <label for="privacyConsent" class="text-xs text-gray-300 cursor-pointer">I agree to the Privacy Policy. I understand my data will be used securely to process this commercial finance enquiry.</label>
+                    <div class="p-4 bg-black/20 rounded-lg border border-white/5">
+                        <label for="privacyConsent" style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;">
+                            <span style="position:relative;display:inline-flex;width:20px;height:20px;min-width:20px;margin-top:2px;border:2px solid #FFD700;border-radius:4px;background:rgba(255,255,255,0.06);flex-shrink:0;">
+                                <input type="checkbox" id="privacyConsent" onchange="document.getElementById('privacyTick').style.opacity=this.checked?1:0" style="position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer;">
+                                <svg id="privacyTick" viewBox="0 0 20 20" fill="#FFD700" aria-hidden="true" style="pointer-events:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;opacity:0;transition:opacity .12s;"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-7 7a1 1 0 01-1.4 0l-3-3a1 1 0 111.4-1.4L9 11.6l6.3-6.3a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>
+                            </span>
+                            <span style="font-size:12px;line-height:1.5;color:#d1d5db;">I agree to the Privacy Policy. I understand my data will be used securely to process this commercial finance enquiry.</span>
+                        </label>
                     </div>
                 </div>
                 <div class="mt-8 flex justify-between items-center">
@@ -430,10 +435,12 @@
         function validateValuesAndProceed() {
             const valStr = document.getElementById('assetValue').value;
             const loanStr = document.getElementById('loanAmount').value;
-            if(!valStr || !loanStr) { showValidationModal("Please provide both Values to continue."); return; }
+            if(!valStr && !loanStr) { showValidationModal("Please enter both the property/asset value and the loan amount required."); return; }
+            if(!valStr) { showValidationModal("Please enter the property/asset value."); return; }
+            if(!loanStr) { showValidationModal("Please enter the loan amount required."); return; }
             
             const val = getRawNumber(valStr); const loan = getRawNumber(loanStr);
-            if (loan > val) { showValidationModal("Requested loan amount cannot exceed the asset value."); return; }
+            if (loan > val) { showValidationModal("The loan amount cannot be higher than the asset value. Please check both figures."); return; }
             formData.propertyValue = valStr; formData.loanAmount = loanStr; formData.currentLender = document.getElementById('currentLender').value;
             goToStep(4);
         }
@@ -508,7 +515,13 @@
             const phone = document.getElementById('phoneNum').value.trim();
             const consent = document.getElementById('privacyConsent').checked;
             
-            if(!name || !email || !phone || !consent) { showValidationModal("Please ensure you have provided your details and accepted the Privacy Notice."); return; }
+            const missing = [];
+            if(!name) missing.push("your full name");
+            if(!email) missing.push("your email address");
+            if(!phone) missing.push("your phone number");
+            if(!consent) missing.push("tick the box to accept the Privacy Notice");
+            if(missing.length) { showValidationModal("Please complete the following: " + missing.join(", ") + "."); return; }
+            if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showValidationModal("That email address does not look right - please check it and try again."); return; }
             
             const btn = document.getElementById('finalSubmitBtn');
             btn.innerHTML = 'Calculating... <i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i>'; btn.disabled = true; lucide.createIcons();
